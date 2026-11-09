@@ -1,0 +1,11 @@
+node_modules
+dist
+.env
+.env.local
+*.pdf
+.DS_Store
+
+# LevelDB runtime files
+packs/**/LOCK
+packs/**/LOG
+packs/**/LOG.old
