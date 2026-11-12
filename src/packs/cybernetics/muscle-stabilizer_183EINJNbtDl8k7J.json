@@ -1,0 +1,36 @@
+{
+  "_id": "183EINJNbtDl8k7J",
+  "_key": "!items!183EINJNbtDl8k7J",
+  "name": "Muscle Stabilizer",
+  "type": "pentra-edgeliner-foundry-vtt.cyberware",
+  "img": "modules/pentra-edgeliner-foundry-vtt/assets/noun_cybernetic_orange@512.webp",
+  "system": {
+    "description": "<p>Muscle weaves that lock the muscles into place, then incrementally tweak position for fine motor control. Grants advantage on Finesse skill checks.</p>",
+    "cost": {
+      "die": 8,
+      "multiplier": 1
+    },
+    "legal": true,
+    "strain": 2,
+    "effect": "skillAdvantage",
+    "attribute": "finesse",
+    "resistance": "",
+    "location": "arms",
+    "skill": "",
+    "slotted": false,
+    "usage": null,
+    "disabled": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 1500000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  }
+}

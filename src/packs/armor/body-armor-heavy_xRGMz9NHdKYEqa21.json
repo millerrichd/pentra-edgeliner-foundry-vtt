@@ -1,0 +1,40 @@
+{
+  "_id": "xRGMz9NHdKYEqa21",
+  "_key": "!items!xRGMz9NHdKYEqa21",
+  "name": "Body Armor, Heavy",
+  "type": "armor",
+  "img": "systems/pentra-core-foundry-vtt/assets/noun_modern_armor_orange@512.webp",
+  "system": {
+    "description": "<p>This full suit of armor offers the heaviest protection available, at the cost of mobility.</p><p><em>In Edgeliner the core Body Armor counts as the light model.</em></p>",
+    "legal": false,
+    "ar": 4,
+    "size": "large",
+    "evasion": -4,
+    "cost": {
+      "die": 8,
+      "multiplier": 4
+    },
+    "layerable": false,
+    "heavy": false,
+    "durability": null,
+    "equipped": false,
+    "coverage": {
+      "torso": true,
+      "arms": true,
+      "legs": true,
+      "head": true
+    }
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 300000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  }
+}

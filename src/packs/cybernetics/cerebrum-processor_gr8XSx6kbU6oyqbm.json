@@ -1,0 +1,36 @@
+{
+  "_id": "gr8XSx6kbU6oyqbm",
+  "_key": "!items!gr8XSx6kbU6oyqbm",
+  "name": "Cerebrum Processor",
+  "type": "pentra-edgeliner-foundry-vtt.cyberware",
+  "img": "modules/pentra-edgeliner-foundry-vtt/assets/noun_cybernetic_orange@512.webp",
+  "system": {
+    "description": "<p>Enhanced mind processing through AI to improve thought processing. Grants advantage on Intellect skill checks.</p>",
+    "cost": {
+      "die": 8,
+      "multiplier": 1
+    },
+    "legal": true,
+    "strain": 2,
+    "effect": "skillAdvantage",
+    "attribute": "intellect",
+    "resistance": "",
+    "location": "arms",
+    "skill": "",
+    "slotted": false,
+    "usage": null,
+    "disabled": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 800000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  }
+}

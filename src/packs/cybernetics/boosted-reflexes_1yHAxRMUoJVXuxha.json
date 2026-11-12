@@ -1,0 +1,36 @@
+{
+  "_id": "1yHAxRMUoJVXuxha",
+  "_key": "!items!1yHAxRMUoJVXuxha",
+  "name": "Boosted Reflexes",
+  "type": "pentra-edgeliner-foundry-vtt.cyberware",
+  "img": "modules/pentra-edgeliner-foundry-vtt/assets/noun_cybernetic_orange@512.webp",
+  "system": {
+    "description": "<p>Enhanced reflexes that grant advantage on Reflex resistance.</p>",
+    "cost": {
+      "die": 6,
+      "multiplier": 1
+    },
+    "legal": true,
+    "strain": 1,
+    "effect": "resistAdvantage",
+    "attribute": "",
+    "resistance": "reflex",
+    "location": "arms",
+    "skill": "",
+    "slotted": false,
+    "usage": null,
+    "disabled": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 600000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  }
+}

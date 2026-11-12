@@ -1,0 +1,28 @@
+<div class="pentra chat-card edgeliner power-card-chat">
+  <header class="card-header">
+    <h3><i class="fa-solid fa-hand-sparkles"></i> {{title}}</h3>
+    {{#if incantation}}<em class="incantation">“{{incantation}}”</em>{{/if}}
+  </header>
+  <p class="result {{#if success}}success{{else}}failure{{/if}}">{{#if success}}{{localize "EDGELINER.Cast.Success"}}{{else}}{{localize "EDGELINER.Cast.Failure"}}{{/if}} · CP {{cp}} · TN {{tn}}</p>
+  <details class="picks"><summary>{{localize "EDGELINER.Cast.Build"}}</summary>
+    <ul>{{#each picks}}<li><span>{{group}}</span> <strong>{{option}}</strong> <span class="hint">{{cp}}</span></li>{{/each}}</ul>
+    <p class="hint">{{text}}</p>
+  </details>
+  {{#if success}}{{#if lines.length}}<ul class="effect-lines">{{#each lines}}<li>{{this}}</li>{{/each}}</ul>{{/if}}{{/if}}
+  <div class="drain-line">
+    <strong>{{localize "PENTRA.Trait.drainDie"}}</strong> {{localize "EDGELINER.Cast.DrainCheck" top=drain.top}}
+    {{{drain.rollHTML}}}
+    {{#if drain.drained}}<span class="warning">{{drain.from}} → {{drain.to}}</span>{{else}}<span>{{localize "EDGELINER.Cast.NoDrain"}}</span>{{/if}}
+  </div>
+  <div class="card-buttons">
+    {{#if damage}}
+      {{#if damage.direct}}
+      <button type="button" data-edgeliner-action="apply-direct"><i class="fa-solid fa-burst"></i> {{localize "EDGELINER.Cast.ApplyDirect" wounds=damage.wounds}}</button>
+      {{else}}
+      <button type="button" data-pentra-action="apply-damage"><i class="fa-solid fa-burst"></i> {{localize "EDGELINER.Cast.ApplyDamage" wounds=damage.wounds}}</button>
+      {{/if}}
+    {{/if}}
+    {{#if healing}}<button type="button" data-edgeliner-action="apply-heal"><i class="fa-solid fa-heart-pulse"></i> {{localize "EDGELINER.Cast.ApplyHeal" n=healing}}</button>{{/if}}
+    {{#each resist}}<button type="button" data-edgeliner-action="resist" data-resistance="{{key}}"><i class="fa-solid fa-shield-halved"></i> {{localize "EDGELINER.Cast.Resist" resistance=label}} ({{pentraSigned ../resistMod}})</button>{{/each}}
+  </div>
+</div>

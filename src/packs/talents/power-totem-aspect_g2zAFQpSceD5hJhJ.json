@@ -1,0 +1,29 @@
+{
+  "_id": "g2zAFQpSceD5hJhJ",
+  "_key": "!items!g2zAFQpSceD5hJhJ",
+  "name": "Power: Totem Aspect",
+  "type": "talent",
+  "img": "systems/pentra-core-foundry-vtt/assets/noun_talent_orange@512.webp",
+  "system": {
+    "description": "<p><strong>Restrictions:</strong> No other Powers talent.</p><p>You can manipulate Totem Aspects; you must choose a totem animal (on the Powers tab). Unlocks the Totem Aspect skills (Power).</p>",
+    "trait": "",
+    "delta": 0,
+    "requires": ""
+  },
+  "flags": {
+    "pentra-edgeliner-foundry-vtt": {
+      "power": "totem"
+    }
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 600000,
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  }
+}

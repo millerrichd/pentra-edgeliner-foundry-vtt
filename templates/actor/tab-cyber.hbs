@@ -1,0 +1,196 @@
+{{#with edgeliner.cyber as |c|}}
+<section class="tab cyber-tab edgeliner-tab {{@root.tab.cssClass}}" data-group="primary" data-tab="cyber">
+  <section class="panel strain-panel">
+    <div class="strain-line">
+      <span class="{{#if c.strain.over}}warning{{/if}}"><strong>{{localize "EDGELINER.Trait.strain"}}</strong> {{c.strain.used}} / {{c.strain.max}}</span>
+      <span class="strain-meter" style="--used: {{c.strain.used}}; --max: {{c.strain.max}};"><span></span></span>
+      <span class="hint">{{localize "EDGELINER.Strain.Hint"}}</span>
+    </div>
+    {{#if (or c.armor.subdermal c.armor.arms c.armor.legs)}}
+    <p class="hint"><i class="fa-solid fa-shield"></i> {{localize "EDGELINER.Cyber.ArmorLine"}}
+      {{#if c.armor.subdermal}}+{{c.armor.subdermal}} {{localize "EDGELINER.Cyber.AllLocations"}}{{/if}}
+      {{#if c.armor.arms}} · +{{c.armor.arms}} {{localize "PENTRA.Location.arms"}}{{/if}}
+      {{#if c.armor.legs}} · +{{c.armor.legs}} {{localize "PENTRA.Location.legs"}}{{/if}}</p>
+    {{/if}}
+  </section>
+
+  {{! Implants }}
+  <section class="item-section">
+    <header class="item-header">
+      <h3>{{localize "TYPES.Item.pentra-edgeliner-foundry-vtt.cyberware"}}</h3>
+      <span class="col narrow">{{localize "EDGELINER.Trait.strain"}}</span>
+      <span class="col wide">{{localize "EDGELINER.Cyber.Effect.label"}}</span>
+      <span class="controls">{{#if c.isGM}}<a data-action="edgeCreate" data-type="cyberware" data-tooltip="{{localize 'PENTRA.AddItem'}}"><i class="fa-solid fa-plus"></i></a>{{/if}}</span>
+    </header>
+    <ol class="item-list">
+      {{#each c.implants as |i|}}
+      <li class="item-row draggable {{#if i.disabled}}disabled-implant{{/if}}" data-item-id="{{i.id}}">
+        <a class="item-name" data-action="itemEdit"><img src="{{i.img}}" alt=""> {{i.name}}</a>
+        <span class="col narrow">{{i.system.strain}}</span>
+        <span class="col wide">
+          {{#if i.disabled}}<span class="warning" data-tooltip="{{localize 'EDGELINER.Burst.DisabledHint'}}"><i class="fa-solid fa-bolt"></i> {{localize "EDGELINER.Burst.Offline"}} ({{i.disabled}})</span>
+          {{else}}{{i.summary}}{{/if}}
+          {{#if i.isChip}}
+            <select data-item-field="system.skill" {{#unless @root.editable}}disabled{{/unless}}>{{selectOptions c.chipSkills selected=i.system.skill}}</select>
+            <label class="checkbox" data-tooltip="{{localize 'EDGELINER.Chip.SlotHint'}}"><input type="checkbox" data-item-field="system.slotted" {{checked i.system.slotted}} {{#unless c.hasChipSystem}}disabled{{/unless}}> {{localize "EDGELINER.Chip.Slotted"}}</label>
+          {{/if}}
+          {{#if i.isSubdermal}}
+            <select data-item-field="system.usage" data-dtype="Number" {{#unless @root.isGM}}disabled{{/unless}}>{{selectOptions c.usage selected=i.system.usage}}</select>
+          {{/if}}
+        </span>
+        <span class="controls">
+          {{#if (and i.disabled c.isGM)}}<a data-action="cyberRestore" data-tooltip="{{localize 'EDGELINER.Burst.Restore'}}"><i class="fa-solid fa-plug-circle-check"></i></a>{{/if}}
+          <a data-action="itemPost" data-tooltip="{{localize 'PENTRA.PostToChat'}}"><i class="fa-solid fa-comment"></i></a>
+          {{#if @root.editable}}<a data-action="itemDelete" data-tooltip="{{localize 'EDGELINER.Cyber.Remove'}}"><i class="fa-solid fa-trash"></i></a>{{/if}}
+        </span>
+      </li>
+      {{else}}
+      <li class="hint empty">{{localize "EDGELINER.Cyber.None"}}</li>
+      {{/each}}
+    </ol>
+  </section>
+
+  {{! CyberDecks }}
+  <section class="item-section">
+    <header class="item-header">
+      <h3>{{localize "TYPES.Item.pentra-edgeliner-foundry-vtt.cyberdeck"}}</h3>
+      <span class="controls">
+        <a data-action="openDelves" data-tooltip="{{localize 'EDGELINER.Delve.Title'}}"><i class="fa-solid fa-network-wired"></i></a>
+        {{#if c.isGM}}<a data-action="edgeCreate" data-type="cyberdeck" data-tooltip="{{localize 'PENTRA.AddItem'}}"><i class="fa-solid fa-plus"></i></a>{{/if}}
+      </span>
+    </header>
+    {{#unless c.canHack}}<p class="hint">{{c.hackProblem}}</p>{{/unless}}
+    {{#each c.decks as |d|}}
+    <div class="deck {{#unless d.system.equipped}}unequipped{{/unless}} {{#if d.crashed}}crashed{{/if}}" data-item-id="{{d.id}}">
+      <div class="deck-header">
+        <a class="item-name" data-action="itemEdit"><img src="{{d.img}}" alt=""> {{d.name}}</a>
+        <span class="deck-health {{#if d.crashed}}warning{{/if}}"><i class="fa-solid fa-heart"></i>
+          {{#if @root.isGM}}<input type="number" class="inline-num" data-item-field="system.health.value" data-dtype="Number" value="{{d.system.health.value}}" min="0">{{else}}{{d.system.health.value}}{{/if}} / {{d.system.health.max}}</span>
+        <span class="controls">
+          <a data-action="itemToggle" class="{{#if d.system.equipped}}active{{/if}}" data-tooltip="{{localize 'EDGELINER.Deck.InUse'}}"><i class="fa-solid fa-plug"></i></a>
+          {{#if (and d.damaged @root.editable)}}<a data-action="defrag" data-tooltip="{{localize 'EDGELINER.Deck.DefragHint'}}"><i class="fa-solid fa-screwdriver-wrench"></i></a>{{/if}}
+          {{#if (and d.system.equipped c.canHack)}}<a data-action="burst" data-tooltip="{{localize 'EDGELINER.Burst.Hint'}}"><i class="fa-solid fa-bolt"></i></a>{{/if}}
+          <a data-action="itemSell" data-tooltip="{{localize 'PENTRA.Sell.Title'}}"><i class="fa-solid fa-coins"></i></a>
+          {{#if @root.editable}}<a data-action="itemDelete"><i class="fa-solid fa-trash"></i></a>{{/if}}
+        </span>
+      </div>
+      <div class="deck-stats">
+        <span>{{localize "PENTRA.Trait.evasion"}} <strong>{{d.stats.evasion}}</strong></span>
+        <span>AR <strong>{{d.stats.armor}}</strong> <span class="hint">({{d.stats.durability}})</span></span>
+        <span>{{localize "EDGELINER.Deck.Damage"}} <strong>{{d.stats.damage}}</strong></span>
+        <span>{{localize "EDGELINER.Deck.Range"}} <strong>{{d.stats.range}}</strong></span>
+        <span>{{localize "EDGELINER.Deck.Memory"}} <strong>{{d.stats.programs}}/{{d.stats.memory}}</strong></span>
+        <span>{{localize "EDGELINER.Deck.Modules"}} <strong>{{d.stats.modulesUsed}}/{{d.stats.moduleSlots}}</strong></span>
+      </div>
+      <ul class="deck-installed">
+        {{#each d.modules as |m|}}<li data-item-id="{{m.id}}"><i class="fa-solid fa-memory"></i> {{m.name}} <span class="hint">{{m.summary}}</span> {{#if @root.editable}}<a data-action="uninstall" data-tooltip="{{localize 'EDGELINER.Deck.Uninstall'}}"><i class="fa-solid fa-eject"></i></a>{{/if}}</li>{{/each}}
+        {{#each d.programs as |pr|}}<li data-item-id="{{pr.id}}"><i class="fa-solid fa-code"></i> {{pr.name}} <span class="hint">{{pr.summary}}</span> {{#if @root.editable}}<a data-action="uninstall" data-tooltip="{{localize 'EDGELINER.Deck.Unload'}}"><i class="fa-solid fa-eject"></i></a>{{/if}}</li>{{/each}}
+      </ul>
+    </div>
+    {{else}}
+    <p class="hint empty">{{localize "EDGELINER.Deck.None"}}</p>
+    {{/each}}
+  </section>
+
+  {{! Modules and programs not in a deck }}
+  {{#if c.loose.length}}
+  <section class="item-section">
+    <header class="item-header">
+      <h3>{{localize "EDGELINER.Deck.Loose"}}</h3>
+      <span class="col wide">{{localize "EDGELINER.Deck.InstallIn"}}</span>
+      <span class="controls"></span>
+    </header>
+    <ol class="item-list">
+      {{#each c.loose as |l|}}
+      <li class="item-row draggable" data-item-id="{{l.id}}">
+        <a class="item-name" data-action="itemEdit"><img src="{{l.img}}" alt=""> {{l.name}} <span class="hint">{{l.summary}}</span></a>
+        <span class="col wide"><select data-item-field="system.installedIn" {{#unless @root.editable}}disabled{{/unless}}>{{selectOptions c.deckChoices selected=l.installedIn}}</select></span>
+        <span class="controls">
+          <a data-action="itemSell" data-tooltip="{{localize 'PENTRA.Sell.Title'}}"><i class="fa-solid fa-coins"></i></a>
+          {{#if @root.editable}}<a data-action="itemDelete"><i class="fa-solid fa-trash"></i></a>{{/if}}
+        </span>
+      </li>
+      {{/each}}
+    </ol>
+  </section>
+  {{/if}}
+  {{#if c.isGM}}
+  <div class="button-row gm-add">
+    <button type="button" data-action="edgeCreate" data-type="deckmodule"><i class="fa-solid fa-plus"></i> {{localize "TYPES.Item.pentra-edgeliner-foundry-vtt.deckmodule"}}</button>
+    <button type="button" data-action="edgeCreate" data-type="deckprogram"><i class="fa-solid fa-plus"></i> {{localize "TYPES.Item.pentra-edgeliner-foundry-vtt.deckprogram"}}</button>
+  </div>
+  {{/if}}
+
+  {{! Data caches recovered on delves }}
+  <section class="item-section data-caches">
+    <header class="item-header">
+      <h3 data-tooltip="{{localize 'EDGELINER.DataCache.Hint'}}">{{localize "EDGELINER.DataCache.Title"}}</h3>
+      <span class="col">{{localize "EDGELINER.DataCache.ValueHeader"}}</span>
+      <span class="col wide-worth">{{localize "PENTRA.Sell.Value"}}</span>
+      <span class="controls"></span>
+    </header>
+    <ol class="item-list">
+      {{#each c.dataCaches as |dc|}}
+      <li class="item-row data-cache-row" data-cache-id="{{dc.id}}">
+        <span class="item-name">
+          {{#if c.isGM}}<input type="text" data-cache-field="contents" value="{{dc.contents}}" placeholder="{{localize 'EDGELINER.DataCache.Contents'}}">
+          {{else if dc.contents}}{{dc.contents}}{{else}}<em class="hint">{{localize "EDGELINER.DataCache.NoContents"}}</em>{{/if}}
+          {{#if dc.from}}<span class="hint">{{dc.from}}</span>{{/if}}
+        </span>
+        <span class="col">
+          {{#if c.isGM}}<select data-cache-field="value"><option value=""></option>{{selectOptions c.cacheValues selected=dc.value localize=true}}</select>
+          {{else}}<span class="value-tag {{dc.value}}">{{dc.valueLabel}}</span>{{/if}}
+        </span>
+        <span class="col wide-worth">
+          {{#if c.isGM}}<select data-cache-field="worthDie"><option value="0">—</option>{{selectOptions c.worthDice selected=dc.worthDie}}</select><select data-cache-field="worthMult">{{selectOptions c.worthMults selected=dc.worthMult}}</select>
+          {{else if dc.worth}}{{dc.worth}}{{else}}<em class="hint" data-tooltip="{{localize 'EDGELINER.DataCache.NotPriced'}}">—</em>{{/if}}
+        </span>
+        <span class="controls">{{#if @root.editable}}{{#if dc.worth}}<a data-action="dataCacheSell" data-tooltip="{{localize 'EDGELINER.DataCache.SellHint'}}"><i class="fa-solid fa-coins"></i></a>{{/if}}<a data-action="dataCacheRemove" data-tooltip="{{localize 'EDGELINER.DataCache.Remove'}}"><i class="fa-solid fa-trash"></i></a>{{/if}}</span>
+      </li>
+      {{else}}
+      <li class="hint empty">{{localize "EDGELINER.DataCache.None"}}</li>
+      {{/each}}
+    </ol>
+  </section>
+
+  {{! Drones (vehicle actors this character owns or runs), as the Gear tab lists vehicles }}
+  <p class="hint">{{localize "EDGELINER.Drone.TabHint"}}</p>
+  {{#if c.droneReady.problem}}<p class="hint warning">{{c.droneReady.problem}}</p>{{/if}}
+  <section class="item-section">
+    <header class="item-header">
+      <h3>{{localize "EDGELINER.Drone.Title"}}</h3>
+      <span class="hint" data-tooltip="{{localize 'EDGELINER.Drone.SlotsHint'}}">{{localize "EDGELINER.Drone.Slots"}} {{c.droneReady.used}}/{{c.droneReady.slots}}</span>
+      <span class="col">{{localize "PENTRA.Trait.health"}}</span>
+      <span class="col">{{localize "EDGELINER.Drone.Control"}}</span>
+      <span class="controls"></span>
+    </header>
+    <ol class="item-list">
+      {{#each c.drones as |dr|}}
+      <li class="item-row drone-row {{#if dr.linked}}linked{{/if}}" data-drone-uuid="{{dr.uuid}}">
+        <a class="item-name" data-action="droneOpen"><img src="{{dr.img}}" alt=""> {{dr.name}}
+          {{#unless dr.onScene}}<span class="hint" data-tooltip="{{localize 'EDGELINER.Drone.NotOnSceneHint'}}"><i class="fa-solid fa-map-location-dot"></i></span>{{/unless}}</a>
+        <span class="col">{{dr.health}}</span>
+        <span class="col">
+          {{#if dr.linked}}{{#if dr.deep}}{{localize "EDGELINER.Drone.DeepShort"}}{{else}}{{localize "EDGELINER.Drone.PseudoShort"}}{{/if}} · {{dr.skill}} {{dr.handling}}
+          {{else if dr.operator}}{{localize "EDGELINER.Drone.RunBy"}} {{dr.operator}}
+          {{else}}{{localize "EDGELINER.Drone.Idle"}}{{/if}}
+        </span>
+        <span class="controls">
+          {{#if dr.linked}}
+            <a data-action="droneDeep" class="{{#if dr.deep}}active{{/if}}" data-tooltip="{{localize 'EDGELINER.Drone.DeepDive'}}"><i class="fa-solid fa-person-through-window"></i></a>
+            <a data-action="droneManeuver" data-tooltip="{{localize 'EDGELINER.Drone.Maneuver'}}"><i class="fa-solid fa-route"></i></a>
+            {{#each dr.weapons as |w|}}<a data-action="droneFire" data-weapon-id="{{w.id}}" data-tooltip="{{w.name}} · {{w.damage}}"><i class="fa-solid fa-crosshairs"></i></a>{{/each}}
+            <a data-action="droneUnlink" data-tooltip="{{localize 'EDGELINER.Drone.Unlink'}}"><i class="fa-solid fa-link-slash"></i></a>
+          {{else if (and dr.owned (not dr.operator))}}
+            <a data-action="droneLink" data-tooltip="{{localize 'EDGELINER.Drone.Link'}}"><i class="fa-solid fa-link"></i></a>
+          {{/if}}
+          {{#if dr.owned}}<a data-action="droneSell" data-tooltip="{{localize 'PENTRA.Sell.Title'}}"><i class="fa-solid fa-coins"></i></a>{{/if}}
+        </span>
+      </li>
+      {{else}}
+      <li class="hint empty">{{localize "EDGELINER.Drone.None"}}</li>
+      {{/each}}
+    </ol>
+  </section>
+</section>
+{{/with}}

@@ -1,0 +1,25 @@
+{
+  "_id": "Vw8HaCEzE2lqCye1",
+  "_key": "!items!Vw8HaCEzE2lqCye1",
+  "name": "Cybernetic Savant",
+  "type": "talent",
+  "img": "systems/pentra-core-foundry-vtt/assets/noun_talent_orange@512.webp",
+  "system": {
+    "description": "<p><strong>Requires:</strong> Cybernetic Acceptance.</p><p>Your maximum Strain is increased from 6 to 8.</p>",
+    "trait": "strain",
+    "delta": 2,
+    "requires": "Cybernetic Acceptance"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 400000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "_id": "Vqt16L8kOe8WN5oq",
+  "_key": "!items!Vqt16L8kOe8WN5oq",
+  "name": "Power: Words of Power",
+  "type": "talent",
+  "img": "systems/pentra-core-foundry-vtt/assets/noun_talent_orange@512.webp",
+  "system": {
+    "description": "<p><strong>Restrictions:</strong> No other Powers talent.</p><p>You can manipulate Words of Power; you must know an Action, Aspect, and Target word for the powers to work. Unlocks the Words of Power skills (Power).</p>",
+    "trait": "",
+    "delta": 0,
+    "requires": ""
+  },
+  "flags": {
+    "pentra-edgeliner-foundry-vtt": {
+      "power": "words"
+    }
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 700000,
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  }
+}

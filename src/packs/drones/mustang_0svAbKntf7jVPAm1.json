@@ -1,0 +1,67 @@
+{
+  "_id": "0svAbKntf7jVPAm1",
+  "_key": "!actors!0svAbKntf7jVPAm1",
+  "name": "Mustang",
+  "type": "vehicle",
+  "img": "systems/pentra-core-foundry-vtt/assets/noun_vehicle_ground_orange@512.webp",
+  "prototypeToken": {
+    "name": "Mustang",
+    "actorLink": true,
+    "bar1": {
+      "attribute": "health"
+    },
+    "texture": {
+      "src": "systems/pentra-core-foundry-vtt/assets/noun_vehicle_ground_orange@512.webp"
+    },
+    "disposition": 1
+  },
+  "flags": {
+    "pentra-edgeliner-foundry-vtt": {
+      "drone": true
+    }
+  },
+  "system": {
+    "description": "<p>A 4-wheeled vehicle that can achieve up to 60 mph.</p><p><em>A drone: drag it onto its operator's sheet to buy it like a vehicle; it becomes an actor you can place on the scene. Take control from the Cyber tab: it needs a Data Jack and a CyberDeck in use running a Drone Control program. The rulebook gives drones no Speed Class; it is set to 1.</em></p>",
+    "cost": {
+      "die": 6,
+      "multiplier": 1
+    },
+    "legal": true,
+    "category": "land",
+    "speedClass": 1,
+    "health": {
+      "value": 4,
+      "max": 4
+    },
+    "evasion": {
+      "base": 9
+    },
+    "ar": 1,
+    "heavyArmor": false,
+    "durability": {
+      "value": 6,
+      "max": 6
+    },
+    "handling": 1,
+    "mounts": 0,
+    "mountNotes": "",
+    "size": "small",
+    "owner": "",
+    "crew": {
+      "driver": "",
+      "passengers": []
+    }
+  },
+  "effects": [],
+  "folder": "fNBap1XnG0kA5rdr",
+  "sort": 400000,
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  },
+  "items": []
+}

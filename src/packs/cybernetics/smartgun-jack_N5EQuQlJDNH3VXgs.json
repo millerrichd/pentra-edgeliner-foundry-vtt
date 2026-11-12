@@ -1,0 +1,36 @@
+{
+  "_id": "N5EQuQlJDNH3VXgs",
+  "_key": "!items!N5EQuQlJDNH3VXgs",
+  "name": "Smartgun Jack",
+  "type": "pentra-edgeliner-foundry-vtt.cyberware",
+  "img": "modules/pentra-edgeliner-foundry-vtt/assets/noun_cybernetic_orange@512.webp",
+  "system": {
+    "description": "<p>Allows equipped firearms to fire with precision. Grants the ability to ignore up to 2 points of range or cover penalties.</p>",
+    "cost": {
+      "die": 6,
+      "multiplier": 1
+    },
+    "legal": true,
+    "strain": 1,
+    "effect": "smartgun",
+    "attribute": "",
+    "resistance": "",
+    "location": "arms",
+    "skill": "",
+    "slotted": false,
+    "usage": null,
+    "disabled": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 1800000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  }
+}

@@ -1,0 +1,241 @@
+/* ==========================================================================
+   Pentra: Edgeliner — additions to the core sheet and chat styles.
+   Uses the core's --pentra-* variables so light and dark themes both work.
+   ========================================================================== */
+
+.pentra.edgeliner,
+.pentra .edgeliner-tab {
+  --edge-neon: #2bb3c9;
+  --edge-neon-soft: rgba(43, 179, 201, 0.15);
+}
+
+/* Module styles sit in a later cascade layer than the system's, so they beat the core's
+   ".tab:not(.active) { display: none }" whatever its specificity: only lay out the active tab. */
+.pentra .edgeliner-tab:not(.active) { display: none; }
+.pentra .edgeliner-tab.active { display: flex; flex-direction: column; gap: 0.6rem; }
+.pentra .edgeliner-tab .notice,
+.pentra.edgeliner .notice {
+  padding: 0.5rem 0.65rem;
+  border-left: 3px solid var(--edge-neon);
+  background: var(--edge-neon-soft);
+  border-radius: 3px;
+  margin: 0;
+}
+.pentra .edgeliner-tab .empty { padding: 0.35rem 0.25rem; list-style: none; }
+.pentra .rank-tag {
+  display: inline-block;
+  min-width: 1.4em;
+  padding: 0 0.3em;
+  text-align: center;
+  border-radius: 3px;
+  background: var(--pentra-panel);
+  font-size: var(--font-size-12, 12px);
+}
+.pentra .rating {
+  display: inline-block;
+  width: 1.4em;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 3px;
+  color: var(--edge-neon);
+  border: 1px solid var(--edge-neon);
+  font-size: var(--font-size-11, 11px);
+}
+.pentra .item-row.locked { opacity: 0.55; }
+.pentra .col.wide { flex: 2.5; display: flex; gap: 0.35rem; align-items: center; flex-wrap: wrap; }
+.pentra .col.wide select { width: auto; max-width: 11rem; }
+
+/* ---------- Powers tab ---------- */
+
+.pentra .power-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  gap: 0.5rem;
+}
+.pentra .power-summary .stat { display: flex; flex-direction: column; gap: 0.15rem; }
+.pentra .power-summary .stat label { font-size: var(--font-size-11, 11px); text-transform: uppercase; color: var(--pentra-muted); }
+.pentra .power-summary .stat strong { font-size: var(--font-size-16, 16px); }
+.pentra .power-summary .icon-btn { align-self: flex-start; }
+.pentra .power-actions { justify-content: flex-end; }
+.pentra .discipline { margin-bottom: 0.4rem; }
+.pentra .discipline-name { padding: 0.2rem 0; display: flex; gap: 0.4rem; align-items: center; }
+.pentra .aspect-list .header-row { font-size: var(--font-size-11, 11px); color: var(--pentra-muted); text-transform: uppercase; }
+.pentra .totem-select { width: auto; flex: 0 0 auto; }
+
+.pentra .word-columns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+.pentra .word-column h4 { margin: 0 0 0.25rem; font-size: var(--font-size-13, 13px); border-bottom: 1px solid var(--pentra-border); }
+.pentra .word-column ol { list-style: none; margin: 0; padding: 0; }
+.pentra .word-column li { display: flex; justify-content: space-between; gap: 0.25rem; padding: 0.1rem 0; font-size: var(--font-size-12, 12px); }
+.pentra .word-column li.unknown { opacity: 0.45; }
+.pentra .word-column em { color: var(--pentra-muted); }
+
+/* ---------- Cyber tab ---------- */
+
+.pentra .strain-line { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+.pentra .strain-meter {
+  position: relative;
+  flex: 0 0 8rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: var(--pentra-panel);
+  border: 1px solid var(--pentra-border);
+  overflow: hidden;
+}
+.pentra .strain-meter > span {
+  position: absolute; inset: 0 auto 0 0;
+  width: calc(min(var(--used) / max(var(--max), 1), 1) * 100%);
+  background: var(--edge-neon);
+}
+.pentra .item-row.disabled-implant .item-name { opacity: 0.6; }
+
+.pentra .deck {
+  border: 1px solid var(--pentra-border);
+  border-radius: 4px;
+  padding: 0.35rem 0.5rem;
+  margin-bottom: 0.4rem;
+}
+.pentra .deck.unequipped { opacity: 0.7; }
+.pentra .deck.crashed { border-color: var(--pentra-failure); }
+.pentra .deck-header { display: flex; align-items: center; gap: 0.5rem; }
+.pentra .deck-header .item-name { flex: 1; display: flex; align-items: center; gap: 0.35rem; }
+.pentra .deck-header .item-name img { width: 24px; height: 24px; border: none; }
+.pentra .deck-header .controls { display: flex; gap: 0.35rem; }
+.pentra .deck-header .controls a.active { color: var(--edge-neon); }
+.pentra .deck-health { display: flex; align-items: center; gap: 0.2rem; }
+.pentra .deck-stats { display: flex; flex-wrap: wrap; gap: 0.25rem 0.9rem; font-size: var(--font-size-12, 12px); padding: 0.25rem 0; }
+.pentra .deck-installed { list-style: none; margin: 0; padding: 0; font-size: var(--font-size-12, 12px); }
+.pentra .deck-installed li { display: flex; align-items: center; gap: 0.35rem; padding: 0.1rem 0; }
+.pentra .deck-installed li a { margin-left: auto; }
+.pentra .gm-add { justify-content: flex-end; }
+.pentra .drone-row .controls a.active { color: var(--edge-neon); }
+.pentra .drone-row.linked .item-name { color: var(--edge-neon); }
+
+/* ---------- Power builder ---------- */
+
+.pentra.caster .window-content { padding: 0.6rem 0.75rem; }
+.pentra.caster .caster-body { display: flex; flex-direction: column; gap: 0.5rem; }
+.pentra.caster .form-fields select { flex: 1; min-width: 0; }
+.pentra.caster .power-card header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem; }
+.pentra .incantation { color: var(--edge-neon); font-style: italic; }
+.pentra.caster .option-group {
+  border: 1px solid var(--pentra-border);
+  border-radius: 4px;
+  margin: 0.35rem 0;
+  padding: 0.25rem 0.5rem 0.35rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  gap: 0.1rem 0.6rem;
+}
+.pentra.caster .option-group legend { font-weight: bold; padding: 0 0.25rem; }
+.pentra.caster .option { display: flex; align-items: center; gap: 0.3rem; cursor: pointer; }
+.pentra.caster .option.disabled { opacity: 0.4; cursor: not-allowed; }
+.pentra.caster .option .cp { margin-left: auto; color: var(--pentra-muted); font-size: var(--font-size-12, 12px); }
+.pentra.caster .option .cp::after { content: " CP"; }
+.pentra.caster .cast-preview {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.4rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  background: var(--edge-neon-soft);
+}
+.pentra.caster .cast-preview div { display: flex; flex-direction: column; align-items: center; }
+.pentra.caster .cast-preview label { font-size: var(--font-size-11, 11px); text-transform: uppercase; color: var(--pentra-muted); }
+.pentra.caster .cast-preview strong { font-size: var(--font-size-16, 16px); }
+.pentra.caster footer.button-row { display: flex; gap: 0.5rem; justify-content: flex-end; }
+
+/* ---------- Delve tracker ---------- */
+
+.pentra.delve-app .delve-body { display: flex; flex-direction: column; gap: 0.5rem; }
+.pentra.delve-app .delve-list { display: flex; flex-direction: column; gap: 0.6rem; max-height: 70vh; overflow-y: auto; }
+.pentra.delve-app .delve {
+  border: 1px solid var(--pentra-border);
+  border-left: 3px solid var(--edge-neon);
+  border-radius: 4px;
+  padding: 0.4rem 0.6rem;
+  display: flex; flex-direction: column; gap: 0.35rem;
+}
+.pentra.delve-app .delve.boosted { border-left-color: var(--pentra-accent); }
+.pentra.delve-app .delve.shutdown { border-left-color: var(--pentra-failure); opacity: 0.8; }
+.pentra.delve-app .delve-header { display: flex; gap: 0.5rem; align-items: center; }
+.pentra.delve-app .delve-name { flex: 1; font-weight: bold; }
+.pentra.delve-app .delve-header select { flex: 0 0 9rem; }
+.pentra.delve-app .delve-hacker { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; }
+.pentra.delve-app .delve-hacker img { width: 24px; height: 24px; vertical-align: middle; border: none; }
+.pentra.delve-app .drop-hint { color: var(--pentra-muted); padding: 0.3rem; border: 1px dashed var(--pentra-border); border-radius: 3px; }
+.pentra.delve-app .delve-status { display: flex; flex-wrap: wrap; gap: 0.3rem 1rem; align-items: center; }
+.pentra.delve-app .alert.boosted strong { color: var(--pentra-accent); }
+.pentra.delve-app .alert.shutdown strong { color: var(--pentra-failure); }
+.pentra.delve-app .button-row { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.pentra.delve-app .button-row button { flex: 0 0 auto; width: auto; }
+.pentra.delve-app .encounter {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem;
+  padding: 0.35rem 0.5rem; border-radius: 3px; background: var(--pentra-panel);
+}
+.pentra.delve-app .encounter button { width: auto; flex: 0 0 auto; }
+.pentra.delve-app .delve-log { margin: 0; padding-left: 1.2rem; font-size: var(--font-size-12, 12px); color: var(--pentra-muted); }
+
+/* ---------- Chat ---------- */
+
+.pentra.chat-card.edgeliner .result.success { color: var(--pentra-success); font-weight: bold; }
+.pentra.chat-card.edgeliner .result.failure { color: var(--pentra-failure); font-weight: bold; }
+.pentra.chat-card.edgeliner .picks ul { list-style: none; margin: 0.25rem 0; padding: 0; font-size: var(--font-size-12, 12px); }
+.pentra.chat-card.edgeliner .picks li { display: flex; gap: 0.35rem; }
+.pentra.chat-card.edgeliner .picks li span:first-child { color: var(--pentra-muted); }
+.pentra.chat-card.edgeliner .effect-lines { margin: 0.3rem 0; padding-left: 1.1rem; }
+.pentra.chat-card.edgeliner .drain-line { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem; margin: 0.3rem 0; }
+.pentra.chat-card.edgeliner .drain-line .dice-roll { flex: 1 0 100%; }
+.pentra.chat-card.edgeliner .card-buttons { display: flex; flex-direction: column; gap: 0.25rem; }
+.pentra.delve-app .delve-log .secret { font-style: italic; opacity: 0.8; }
+.pentra.delve-app .connected { color: var(--edge-neon, #2bb3c9); }
+.pentra.delve-app strong.delve-name { flex: 1; }
+.pentra.delve-app .initiative { display: flex; flex-wrap: wrap; gap: 0.2rem 0.9rem; align-items: center; font-size: var(--font-size-12, 12px); }
+.pentra.delve-app .initiative .side.active { font-weight: bold; color: var(--edge-neon, #2bb3c9); }
+.pentra.delve-app .delve-caches { display: flex; flex-direction: column; gap: 0.25rem; font-size: var(--font-size-12, 12px); }
+.pentra.delve-app .delve-caches ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.2rem; }
+.pentra.delve-app .delve-caches .cache { display: flex; align-items: center; gap: 0.4rem; }
+.pentra.delve-app .delve-caches .cache-meta { display: flex; align-items: center; gap: 0.35rem; flex: 0 0 auto; }
+.pentra.delve-app .delve-caches .cache-meta select { width: auto; }
+.pentra.delve-app .delve-caches .cache input[type="text"], .pentra.delve-app .delve-caches .contents { flex: 1; }
+.pentra.delve-app .delve-caches .cache.recovered .status { color: var(--edge-neon, #2bb3c9); font-weight: bold; }
+.pentra.delve-app .delve-caches .cache.left, .pentra.delve-app .delve-caches .cache.lost { opacity: 0.6; }
+.pentra.delve-app .delve-caches > a { align-self: flex-start; }
+.pentra .value-tag { display: inline-block; padding: 0 0.35em; border-radius: 3px; font-size: var(--font-size-11, 11px); font-weight: bold; text-transform: uppercase; border: 1px solid currentColor; }
+.pentra .value-tag.low { color: var(--pentra-muted); }
+.pentra .value-tag.mid { color: var(--edge-neon, #2bb3c9); }
+.pentra .value-tag.high { color: var(--pentra-accent); }
+.pentra .data-cache-row .item-name { display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; }
+.pentra .data-cache-row .item-name input { flex: 1; min-width: 8rem; }
+.pentra .data-cache-row select { width: auto; }
+.pentra.delve-app .delve-caches .worth { display: inline-flex; align-items: center; gap: 0.2rem; white-space: nowrap; }
+.pentra.delve-app .delve-caches .worth select { width: auto; }
+.pentra .data-cache-row .wide-worth { display: flex; gap: 0.2rem; align-items: center; }
+.pentra .data-cache-row .wide-worth select { width: auto; }
+.pentra.delve-app .delve-history { display: flex; flex-direction: column; gap: 0.2rem; font-size: var(--font-size-12, 12px); }
+.pentra.delve-app .delve-history .delve-log { max-height: 14rem; overflow-y: auto; list-style: none; padding: 0.25rem 0.4rem; border: 1px solid var(--pentra-border); border-radius: 3px; background: var(--pentra-panel); }
+.pentra.delve-app .delve-history .delve-log li { padding: 0.05rem 0; }
+.pentra.delve-app .delve-history .log-round { display: inline-block; min-width: 2em; color: var(--edge-neon, #2bb3c9); font-weight: bold; }
+.pentra.delve-app .delve-log .goes-first { color: var(--edge-neon, #2bb3c9); }
+.pentra.delve-app .delve .collapse-toggle { flex: 0 0 auto; width: 1.2em; text-align: center; }
+.pentra.delve-app .delve.collapsed { gap: 0.15rem; padding-block: 0.25rem; }
+.pentra.delve-app .delve-summary { margin: 0; display: flex; flex-wrap: wrap; gap: 0.2rem 0.4rem; align-items: center; }
+.pentra.delve-app .delve-caches .cache-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; }
+.pentra.delve-app .delve-caches .cache-actions button { width: auto; flex: 0 0 auto; }
+/* Runs: hackers moving together through one system */
+.pentra.delve-app .delve-runs { display: flex; flex-direction: column; gap: 0.4rem; }
+.pentra.delve-app .run { border: 1px solid var(--pentra-border); border-radius: 4px; padding: 0.3rem 0.5rem; display: flex; flex-direction: column; gap: 0.3rem; }
+.pentra.delve-app .run-header { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; }
+.pentra.delve-app .run-header strong { flex: 1; }
+.pentra.delve-app .run-header button { width: auto; flex: 0 0 auto; }
+.pentra.delve-app .run-members { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.2rem; }
+.pentra.delve-app .member { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem; font-size: var(--font-size-12, 12px); }
+.pentra.delve-app .member .member-name { display: inline-flex; align-items: center; gap: 0.3rem; flex: 0 0 auto; }
+.pentra.delve-app .member img.member-img { width: 22px; height: 22px; max-width: 22px; max-height: 22px; flex: 0 0 22px; object-fit: cover; vertical-align: middle; border: none; }
+.pentra.delve-app .member:not(.in) > a { opacity: 0.75; }
+.pentra.delve-app .member-controls { margin-left: auto; display: flex; align-items: center; gap: 0.3rem; }
+.pentra.delve-app .member-controls button, .pentra.delve-app .member-controls select { width: auto; flex: 0 0 auto; }
+.pentra.delve-app .gate-tried.through { color: var(--pentra-success); }
+.pentra.delve-app .gate-tried.tripped { color: var(--pentra-failure); }
+.pentra.delve-app .turn-of { display: inline-flex; gap: 0.35rem; }
+.pentra.delve-app .sec-target { width: auto; flex: 0 0 auto; }
+.pentra.delve-app .log-who { font-weight: bold; }

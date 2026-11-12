@@ -1,0 +1,36 @@
+{
+  "_id": "NUt8J7HVbTotguQF",
+  "_key": "!items!NUt8J7HVbTotguQF",
+  "name": "Toxin Filters",
+  "type": "pentra-edgeliner-foundry-vtt.cyberware",
+  "img": "modules/pentra-edgeliner-foundry-vtt/assets/noun_cybernetic_orange@512.webp",
+  "system": {
+    "description": "<p>Body filters that grant advantage on Fortitude resistance.</p>",
+    "cost": {
+      "die": 6,
+      "multiplier": 1
+    },
+    "legal": true,
+    "strain": 1,
+    "effect": "resistAdvantage",
+    "attribute": "",
+    "resistance": "fortitude",
+    "location": "arms",
+    "skill": "",
+    "slotted": false,
+    "usage": null,
+    "disabled": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 2000000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  }
+}

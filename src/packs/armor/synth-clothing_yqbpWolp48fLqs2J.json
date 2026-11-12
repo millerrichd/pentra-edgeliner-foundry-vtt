@@ -1,0 +1,40 @@
+{
+  "_id": "yqbpWolp48fLqs2J",
+  "_key": "!items!yqbpWolp48fLqs2J",
+  "name": "Synth-Clothing",
+  "type": "armor",
+  "img": "systems/pentra-core-foundry-vtt/assets/noun_modern_armor_orange@512.webp",
+  "system": {
+    "description": "<p>Clothing of many different styles that provides a little protection to all but the face. It can be worn under a Bulletproof Vest, Leather Jacket, or Leather Long Coat.</p>",
+    "legal": true,
+    "ar": 1,
+    "size": "normal",
+    "evasion": 0,
+    "cost": {
+      "die": 4,
+      "multiplier": 1
+    },
+    "layerable": true,
+    "heavy": false,
+    "durability": null,
+    "equipped": false,
+    "coverage": {
+      "torso": true,
+      "arms": true,
+      "legs": true,
+      "head": false
+    }
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  }
+}

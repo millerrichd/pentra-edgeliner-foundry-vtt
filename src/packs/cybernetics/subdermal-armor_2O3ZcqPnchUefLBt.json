@@ -1,0 +1,36 @@
+{
+  "_id": "2O3ZcqPnchUefLBt",
+  "_key": "!items!2O3ZcqPnchUefLBt",
+  "name": "Subdermal Armor",
+  "type": "pentra-edgeliner-foundry-vtt.cyberware",
+  "img": "modules/pentra-edgeliner-foundry-vtt/assets/noun_cybernetic_orange@512.webp",
+  "system": {
+    "description": "<p>Composite plates installed under the skin. Grants +2 Armor Rating to all locations. It has the standard armor-usage die but resets when all wounds are healed.</p>",
+    "cost": {
+      "die": 8,
+      "multiplier": 1
+    },
+    "legal": true,
+    "strain": 2,
+    "effect": "subdermal",
+    "attribute": "",
+    "resistance": "",
+    "location": "arms",
+    "skill": "",
+    "slotted": false,
+    "usage": null,
+    "disabled": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 1900000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  }
+}

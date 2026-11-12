@@ -1,0 +1,36 @@
+{
+  "_id": "QpoQfulcymvaq6vN",
+  "_key": "!items!QpoQfulcymvaq6vN",
+  "name": "AI Data Store",
+  "type": "pentra-edgeliner-foundry-vtt.cyberware",
+  "img": "modules/pentra-edgeliner-foundry-vtt/assets/noun_cybernetic_orange@512.webp",
+  "system": {
+    "description": "<p>Enhanced data storage with searchable AI to recover details you may have missed the first time. Grants advantage on Knowledge skill checks.</p>",
+    "cost": {
+      "die": 8,
+      "multiplier": 1
+    },
+    "legal": true,
+    "strain": 2,
+    "effect": "skillAdvantage",
+    "attribute": "knowledge",
+    "resistance": "",
+    "location": "arms",
+    "skill": "",
+    "slotted": false,
+    "usage": null,
+    "disabled": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  }
+}

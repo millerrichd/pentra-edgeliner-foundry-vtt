@@ -1,0 +1,27 @@
+{
+  "_id": "Wehhqte3aejEVtMd",
+  "_key": "!items!Wehhqte3aejEVtMd",
+  "name": "Drone Durability Upgrade",
+  "type": "vehiclemod",
+  "img": "systems/pentra-core-foundry-vtt/assets/noun_vehicle_modifications_orange@512.webp",
+  "system": {
+    "description": "<p>Increase the durability die by one die size; this influences how long the armor lasts. Only once.</p><p><em>Each modification raises the drone's cost by one multiplier level; no drone may exceed d12x6 R.D. Added after the drone is acquired, each modification costs d4 R.D.</em></p>",
+    "mod": "durability",
+    "cost": {
+      "die": 4,
+      "multiplier": 1
+    }
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 200000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  }
+}

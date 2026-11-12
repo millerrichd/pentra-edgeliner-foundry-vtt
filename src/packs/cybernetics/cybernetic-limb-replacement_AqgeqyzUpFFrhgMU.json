@@ -1,0 +1,36 @@
+{
+  "_id": "AqgeqyzUpFFrhgMU",
+  "_key": "!items!AqgeqyzUpFFrhgMU",
+  "name": "Cybernetic Limb Replacement",
+  "type": "pentra-edgeliner-foundry-vtt.cyberware",
+  "img": "modules/pentra-edgeliner-foundry-vtt/assets/noun_cybernetic_orange@512.webp",
+  "system": {
+    "description": "<p>Replace a flesh limb with metal and composite materials. Grants +1 Armor Rating per pair of limbs to the location (arms or legs) applied. (One item per limb: set which pair it belongs to.)</p>",
+    "cost": {
+      "die": 8,
+      "multiplier": 1
+    },
+    "legal": true,
+    "strain": 2,
+    "effect": "limb",
+    "attribute": "",
+    "resistance": "",
+    "location": "arms",
+    "skill": "",
+    "slotted": false,
+    "usage": null,
+    "disabled": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 1000000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  }
+}

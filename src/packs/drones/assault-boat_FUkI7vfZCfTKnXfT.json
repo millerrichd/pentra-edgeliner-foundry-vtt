@@ -1,0 +1,67 @@
+{
+  "_id": "FUkI7vfZCfTKnXfT",
+  "_key": "!actors!FUkI7vfZCfTKnXfT",
+  "name": "Assault Boat",
+  "type": "vehicle",
+  "img": "systems/pentra-core-foundry-vtt/assets/noun_vehicle_water_orange@512.webp",
+  "prototypeToken": {
+    "name": "Assault Boat",
+    "actorLink": true,
+    "bar1": {
+      "attribute": "health"
+    },
+    "texture": {
+      "src": "systems/pentra-core-foundry-vtt/assets/noun_vehicle_water_orange@512.webp"
+    },
+    "disposition": 1
+  },
+  "flags": {
+    "pentra-edgeliner-foundry-vtt": {
+      "drone": true
+    }
+  },
+  "system": {
+    "description": "<p>A medium-sized drone that floats on water; it cannot handle large waves but includes a weapon mount. Normal-sized.</p><p><em>A drone: drag it onto its operator's sheet to buy it like a vehicle; it becomes an actor you can place on the scene. Take control from the Cyber tab: it needs a Data Jack and a CyberDeck in use running a Drone Control program. The rulebook gives drones no Speed Class; it is set to 1.</em></p>",
+    "cost": {
+      "die": 8,
+      "multiplier": 1
+    },
+    "legal": true,
+    "category": "sea",
+    "speedClass": 1,
+    "health": {
+      "value": 8,
+      "max": 8
+    },
+    "evasion": {
+      "base": 7
+    },
+    "ar": 3,
+    "heavyArmor": false,
+    "durability": {
+      "value": 6,
+      "max": 6
+    },
+    "handling": -1,
+    "mounts": 1,
+    "mountNotes": "",
+    "size": "medium",
+    "owner": "",
+    "crew": {
+      "driver": "",
+      "passengers": []
+    }
+  },
+  "effects": [],
+  "folder": "veLbO8gORcb4Hnby",
+  "sort": 500000,
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  },
+  "items": []
+}

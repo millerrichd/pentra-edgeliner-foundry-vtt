@@ -1,0 +1,17 @@
+{
+  "_id": "D3yjDKlA1PjGkxLG",
+  "_key": "!folders!D3yjDKlA1PjGkxLG",
+  "name": "Motherboards",
+  "type": "Item",
+  "folder": null,
+  "sorting": "m",
+  "sort": 100,
+  "color": null,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  },
+  "description": ""
+}

@@ -1,0 +1,29 @@
+{
+  "_id": "FNaGHUTV0NnVD3y7",
+  "_key": "!items!FNaGHUTV0NnVD3y7",
+  "name": "Drone Control",
+  "type": "pentra-edgeliner-foundry-vtt.deckprogram",
+  "img": "modules/pentra-edgeliner-foundry-vtt/assets/noun_cyberdeck_program_orange@512.webp",
+  "system": {
+    "description": "<p>This allows you to control one drone per program, bought separately for each drone. You can control the drone within a range equal to the deck's range value (Very Close = 2 miles, Close = 5 miles, and Far = 10 miles).</p>",
+    "cost": {
+      "die": 4,
+      "multiplier": 1
+    },
+    "legal": true,
+    "program": "droneControl",
+    "installedIn": ""
+  },
+  "effects": [],
+  "folder": "pM9oKYV8YuPpJyPm",
+  "sort": 1300000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  }
+}

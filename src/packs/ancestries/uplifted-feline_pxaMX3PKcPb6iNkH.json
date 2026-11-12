@@ -1,0 +1,24 @@
+{
+  "_id": "pxaMX3PKcPb6iNkH",
+  "_key": "!items!pxaMX3PKcPb6iNkH",
+  "name": "Uplifted Feline",
+  "type": "ancestry",
+  "img": "systems/pentra-core-foundry-vtt/assets/noun_ancestry_orange@512.webp",
+  "system": {
+    "description": "<p>Big cats given sentience, humanoid form, and opposable thumbs. Graceful, leaner and wirier than humans, four to five feet tall, with their fur and facial features. Common in technical, surveillance, medical, piloting, intelligence, and hacking roles.</p><p><strong>Features:</strong> Attribute Boost: Intellect.</p>",
+    "attributeBoost": "intellect",
+    "size": "medium"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 300000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "_id": "biEheYEtOQruTmhX",
+  "_key": "!items!biEheYEtOQruTmhX",
+  "name": "Bone Spurs",
+  "type": "pentra-edgeliner-foundry-vtt.cyberware",
+  "img": "modules/pentra-edgeliner-foundry-vtt/assets/noun_cybernetic_orange@512.webp",
+  "system": {
+    "description": "<p>Retractable bone spurs, enhanced with metal and composite, give a hidden melee weapon that uses the Might and Martial Arts skill to attack. It does an extra wound on top of Martial Arts.</p>",
+    "cost": {
+      "die": 6,
+      "multiplier": 1
+    },
+    "legal": true,
+    "strain": 1,
+    "effect": "boneSpurs",
+    "attribute": "",
+    "resistance": "",
+    "location": "arms",
+    "skill": "",
+    "slotted": false,
+    "usage": null,
+    "disabled": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 500000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  }
+}

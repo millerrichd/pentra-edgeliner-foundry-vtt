@@ -1,0 +1,39 @@
+{
+  "_id": "8QMEHr63K2LQaZ0d",
+  "_key": "!items!8QMEHr63K2LQaZ0d",
+  "name": "Molecular Short Sword",
+  "type": "weapon",
+  "img": "systems/pentra-core-foundry-vtt/assets/noun_melee_weapon_orange@512.webp",
+  "system": {
+    "description": "<p>A ceramic sword with a near-molecular thickness at its edge.</p>",
+    "heavy": false,
+    "burning": false,
+    "reloadActions": 0,
+    "category": "melee",
+    "skill": "melee_weapons",
+    "wounds": 2,
+    "increment": "even",
+    "range": "melee",
+    "hands": 1,
+    "size": "normal",
+    "legal": false,
+    "cost": {
+      "die": 8,
+      "multiplier": 2
+    },
+    "slot": "stowed",
+    "underwater": "swing"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 300000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  }
+}

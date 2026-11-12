@@ -1,0 +1,19 @@
+<section class="item-details">
+  <div class="form-group">
+    <label>{{localize "EDGELINER.Deck.Slot.label"}}</label>
+    <select name="system.slot">{{selectOptions options.moduleSlots selected=system.slot localize=true}}</select>
+  </div>
+  {{#if (eq system.slot "range")}}
+  <div class="form-group">
+    <label>{{localize "EDGELINER.Deck.Range"}}</label>
+    <select name="system.range">{{selectOptions options.deckRanges selected=system.range localize=true}}</select>
+  </div>
+  {{else}}
+  <div class="form-group">
+    <label>{{localize "PENTRA.Change"}}</label>
+    <input type="number" name="system.value" value="{{system.value}}" min="0">
+  </div>
+  {{/if}}
+  <p class="hint">{{localize "EDGELINER.Deck.ModuleHint"}}</p>
+  {{> "systems/pentra-core-foundry-vtt/templates/item/physical.hbs"}}
+</section>

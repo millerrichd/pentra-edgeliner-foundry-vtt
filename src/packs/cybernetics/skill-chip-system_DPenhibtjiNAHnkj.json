@@ -1,0 +1,36 @@
+{
+  "_id": "DPenhibtjiNAHnkj",
+  "_key": "!items!DPenhibtjiNAHnkj",
+  "name": "Skill Chip System",
+  "type": "pentra-edgeliner-foundry-vtt.cyberware",
+  "img": "modules/pentra-edgeliner-foundry-vtt/assets/noun_cybernetic_orange@512.webp",
+  "system": {
+    "description": "<p>Can slot a skill chip that grants the user a bonus to a skill specialization. You can slot only 2 skill chips at a time, and the bonus overrides natural skill progression to a rank of 2.</p>",
+    "cost": {
+      "die": 8,
+      "multiplier": 2
+    },
+    "legal": true,
+    "strain": 3,
+    "effect": "chipSystem",
+    "attribute": "",
+    "resistance": "",
+    "location": "arms",
+    "skill": "",
+    "slotted": false,
+    "usage": null,
+    "disabled": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 1600000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  }
+}

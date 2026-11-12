@@ -1,0 +1,67 @@
+{
+  "_id": "bYoslTPSRADreFrm",
+  "_key": "!actors!bYoslTPSRADreFrm",
+  "name": "Doberman",
+  "type": "vehicle",
+  "img": "systems/pentra-core-foundry-vtt/assets/noun_vehicle_ground_orange@512.webp",
+  "prototypeToken": {
+    "name": "Doberman",
+    "actorLink": true,
+    "bar1": {
+      "attribute": "health"
+    },
+    "texture": {
+      "src": "systems/pentra-core-foundry-vtt/assets/noun_vehicle_ground_orange@512.webp"
+    },
+    "disposition": 1
+  },
+  "flags": {
+    "pentra-edgeliner-foundry-vtt": {
+      "drone": true
+    }
+  },
+  "system": {
+    "description": "<p>A tank-tread vehicle that can climb steps. Has a weapon mount. Normal-sized.</p><p><em>A drone: drag it onto its operator's sheet to buy it like a vehicle; it becomes an actor you can place on the scene. Take control from the Cyber tab: it needs a Data Jack and a CyberDeck in use running a Drone Control program. The rulebook gives drones no Speed Class; it is set to 1.</em></p>",
+    "cost": {
+      "die": 8,
+      "multiplier": 1
+    },
+    "legal": true,
+    "category": "land",
+    "speedClass": 1,
+    "health": {
+      "value": 8,
+      "max": 8
+    },
+    "evasion": {
+      "base": 8
+    },
+    "ar": 2,
+    "heavyArmor": false,
+    "durability": {
+      "value": 6,
+      "max": 6
+    },
+    "handling": -1,
+    "mounts": 1,
+    "mountNotes": "",
+    "size": "medium",
+    "owner": "",
+    "crew": {
+      "driver": "",
+      "passengers": []
+    }
+  },
+  "effects": [],
+  "folder": "fNBap1XnG0kA5rdr",
+  "sort": 300000,
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  },
+  "items": []
+}

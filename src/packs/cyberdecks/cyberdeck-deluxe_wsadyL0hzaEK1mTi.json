@@ -1,0 +1,41 @@
+{
+  "_id": "wsadyL0hzaEK1mTi",
+  "_key": "!items!wsadyL0hzaEK1mTi",
+  "name": "CyberDeck, Deluxe",
+  "type": "pentra-edgeliner-foundry-vtt.cyberdeck",
+  "img": "modules/pentra-edgeliner-foundry-vtt/assets/noun_cyberdeck_orange@512.webp",
+  "system": {
+    "description": "<p>A forearm computer, corded to a Data Jack, that projects its user's consciousness into the system. Wireless range Very Close unless a Range Boost module says otherwise. Install modules and load programs from the Cyber tab.</p>",
+    "cost": {
+      "die": 8,
+      "multiplier": 2
+    },
+    "legal": true,
+    "size": "normal",
+    "evasion": 9,
+    "armor": 1,
+    "wounds": 1,
+    "increment": "even",
+    "memory": 3,
+    "modules": 3,
+    "range": "veryClose",
+    "health": {
+      "value": 12,
+      "max": 12
+    },
+    "durability": null,
+    "equipped": false
+  },
+  "effects": [],
+  "folder": "D3yjDKlA1PjGkxLG",
+  "sort": 200000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  }
+}

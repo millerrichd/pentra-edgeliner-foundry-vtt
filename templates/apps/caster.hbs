@@ -1,0 +1,71 @@
+<div class="caster-body">
+  {{#if noTradition}}
+  <p class="notice">{{localize "EDGELINER.Power.NoTraditionHint"}}</p>
+  {{else}}
+  <div class="form-group">
+    <label>{{categoryLabel}}</label>
+    <div class="form-fields">
+    {{#if (eq category "psychic")}}
+      <select name="power">{{#each choices}}<option value="{{value}}" {{#if selected}}selected{{/if}} {{#if disabled}}disabled{{/if}}>{{label}}</option>{{/each}}</select>
+    {{else if (eq category "totem")}}
+      <select name="aspect">{{#each choices}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select>
+    {{else}}
+      {{#each wordChoices as |w|}}
+      <select name="{{w.type}}" aria-label="{{w.label}}">
+        {{#each w.options}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+      </select>
+      {{/each}}
+    {{/if}}
+    </div>
+  </div>
+  {{#if (eq category "totem")}}<p class="hint">{{#if animal}}{{localize "EDGELINER.Totem.Animal"}}: <strong>{{animal}}</strong>{{else}}<span class="warning">{{localize "EDGELINER.Totem.NoAnimal"}}</span>{{/if}}</p>{{/if}}
+
+  {{#if noPower}}
+  <p class="notice">{{localize "EDGELINER.Caster.NothingKnown"}}</p>
+  {{else}}
+  <section class="power-card">
+    <header>
+      <h3>{{power.name}}{{#if power.rating}} <span class="rating">{{power.rating}}</span>{{/if}}</h3>
+      {{#if power.incantation}}<em class="incantation">“{{power.incantation}}”</em>{{/if}}
+      {{#if power.cap}}<span class="hint">{{localize "EDGELINER.Totem.Limit"}}: {{power.cap}}</span>{{/if}}
+    </header>
+    <p class="hint">{{power.text}}</p>
+    {{#each power.groups as |g|}}
+    <fieldset class="option-group">
+      <legend>{{g.label}}</legend>
+      {{#each g.options as |o|}}
+      <label class="option {{#if o.disabled}}disabled{{/if}}" {{#if o.tier}}data-tooltip="{{o.tier}}"{{/if}}>
+        <input type="radio" name="pick:{{g.index}}" value="{{o.index}}" {{checked o.checked}} {{#if o.disabled}}disabled{{/if}}>
+        <span>{{o.label}}</span> <span class="cp">{{o.cp}}</span>
+      </label>
+      {{/each}}
+    </fieldset>
+    {{/each}}
+  </section>
+
+  <section class="cast-preview">
+    <div><label>CP</label><strong>{{preview.cp}}</strong></div>
+    <div><label>TN</label><strong>{{preview.tn}}</strong></div>
+    <div><label>{{localize "EDGELINER.Drain.Short"}}</label><strong>1–{{preview.drainTop}}</strong><span class="hint">{{localize "EDGELINER.Caster.OnDie"}} {{preview.drainDieLabel}}</span></div>
+    <div><label>{{localize "EDGELINER.Caster.Roll"}}</label><strong>{{preview.roll}}</strong></div>
+    <div><label>{{localize "EDGELINER.Caster.Odds"}}</label><strong>{{preview.chance}}%</strong></div>
+  </section>
+  {{#if preview.noDuration}}<p class="hint warning">{{localize "EDGELINER.Effect.NoDuration"}}</p>{{/if}}
+  {{#if preview.problem}}<p class="notice warning">{{preview.problem}}</p>{{/if}}
+
+  <div class="form-group">
+    <label>{{localize "EDGELINER.Caster.BuildName"}}</label>
+    <input type="text" name="buildName" value="{{buildName}}" placeholder="{{power.name}}">
+  </div>
+  <footer class="button-row">
+    {{#if editing}}
+    <button type="button" data-action="save"><i class="fa-solid fa-floppy-disk"></i> {{localize "EDGELINER.Caster.Update"}}</button>
+    <button type="button" data-action="saveNew"><i class="fa-solid fa-copy"></i> {{localize "EDGELINER.Caster.SaveNew"}}</button>
+    {{else}}
+    <button type="button" data-action="save"><i class="fa-solid fa-floppy-disk"></i> {{localize "EDGELINER.Caster.Save"}}</button>
+    {{/if}}
+    <button type="button" data-action="cast" {{#if preview.problem}}disabled{{/if}}><i class="fa-solid fa-wand-sparkles"></i> {{localize "EDGELINER.Caster.Cast"}}</button>
+  </footer>
+  {{/if}}
+  {{/if}}
+</div>

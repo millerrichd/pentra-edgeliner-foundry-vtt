@@ -1,0 +1,29 @@
+{
+  "_id": "bZM57yjLrhJ9U0nR",
+  "_key": "!items!bZM57yjLrhJ9U0nR",
+  "name": "Power: Psychic Discipline",
+  "type": "talent",
+  "img": "systems/pentra-core-foundry-vtt/assets/noun_talent_orange@512.webp",
+  "system": {
+    "description": "<p><strong>Restrictions:</strong> No other Powers talent.</p><p>You have unlocked the Psychic Powers locked in your genes; as you develop the powers, they will get stronger. Unlocks the Psychic Discipline skills (Power).</p>",
+    "trait": "",
+    "delta": 0,
+    "requires": ""
+  },
+  "flags": {
+    "pentra-edgeliner-foundry-vtt": {
+      "power": "psychic"
+    }
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 500000,
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  }
+}

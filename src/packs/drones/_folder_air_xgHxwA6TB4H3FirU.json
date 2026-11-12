@@ -1,0 +1,17 @@
+{
+  "_id": "xgHxwA6TB4H3FirU",
+  "_key": "!folders!xgHxwA6TB4H3FirU",
+  "name": "Air",
+  "type": "Actor",
+  "folder": null,
+  "sorting": "m",
+  "sort": 100,
+  "color": null,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  },
+  "description": ""
+}

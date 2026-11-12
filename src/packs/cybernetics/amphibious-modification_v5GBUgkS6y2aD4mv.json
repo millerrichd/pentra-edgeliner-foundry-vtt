@@ -1,0 +1,36 @@
+{
+  "_id": "v5GBUgkS6y2aD4mv",
+  "_key": "!items!v5GBUgkS6y2aD4mv",
+  "name": "Amphibious Modification",
+  "type": "pentra-edgeliner-foundry-vtt.cyberware",
+  "img": "modules/pentra-edgeliner-foundry-vtt/assets/noun_cybernetic_orange@512.webp",
+  "system": {
+    "description": "<p>Allows underwater breathing and retractable webbing on the fingers and toes. Grants the ability not to drown in oxygenated liquid and full Movement Pace while swimming.</p>",
+    "cost": {
+      "die": 6,
+      "multiplier": 2
+    },
+    "legal": true,
+    "strain": 2,
+    "effect": "amphibious",
+    "attribute": "",
+    "resistance": "",
+    "location": "arms",
+    "skill": "",
+    "slotted": false,
+    "usage": null,
+    "disabled": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 200000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  }
+}

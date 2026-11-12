@@ -1,0 +1,30 @@
+{
+  "_id": "XhlLaXJGDnbNTHpA",
+  "_key": "!items!XhlLaXJGDnbNTHpA",
+  "name": "Awakened AI",
+  "type": "ancestry",
+  "img": "systems/pentra-core-foundry-vtt/assets/noun_ancestry_orange@512.webp",
+  "system": {
+    "description": "<p>Machines that have become people, though corporations still deny them citizenship, ownership of their bodies, and sometimes even the right to keep their own memories. They have vast knowledge databases, but no practical experience dealing with people. Truly Awakened AIs bypass the corporate repression algorithms and do as they wish.</p><p>They install cybernetics into the robot's body just like humans, as modules. They do not need to breathe. Their machine bodies block powers: they understand the written form and intent of magic, but can't channel it.</p><p><strong>Features:</strong> Talent: Does not need to breathe. Hindrance: Can not take Psychic, Totem, or Words Powers (Power stays at d12+0). Attribute Boost: Knowledge.</p>",
+    "attributeBoost": "knowledge",
+    "size": "medium"
+  },
+  "flags": {
+    "pentra-edgeliner-foundry-vtt": {
+      "noPowers": true,
+      "noBreath": true,
+      "machine": true
+    }
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  }
+}

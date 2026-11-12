@@ -1,0 +1,24 @@
+{
+  "_id": "frOJER7obsXzFMFI",
+  "_key": "!items!frOJER7obsXzFMFI",
+  "name": "Uplifted Rodent",
+  "type": "ancestry",
+  "img": "systems/pentra-core-foundry-vtt/assets/noun_ancestry_orange@512.webp",
+  "system": {
+    "description": "<p>Given human form and sentience, three to four feet tall. Concentrated in mines, sewers, production facilities, waste systems, and dense industrial districts; corporations treat them as replaceable, but their tunnels and mutual-aid networks make them vital to resistance work.</p><p><strong>Features:</strong> Attribute Boost: Finesse.</p>",
+    "attributeBoost": "finesse",
+    "size": "medium"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 400000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  }
+}

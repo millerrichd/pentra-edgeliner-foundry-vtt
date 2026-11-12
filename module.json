@@ -1,0 +1,79 @@
+{
+  "id": "pentra-edgeliner-foundry-vtt",
+  "title": "Pentra: Edgeliner",
+  "description": "The Edgeliner setting for Pentra: Five-Dice Engine: a corporate dystopia of cybernetics, CyberDecks, drones, and three traditions of power (Psychic Disciplines, Totem Aspects, Words of Power). Requires the Pentra: Five-Dice Engine Core system.",
+  "version": "0.4.0",
+  "compatibility": {
+    "minimum": "14",
+    "verified": "14"
+  },
+  "url": "https://github.com/millerrichd/pentra-edgeliner-foundry-vtt",
+  "manifest": "https://raw.githubusercontent.com/millerrichd/pentra-edgeliner-foundry-vtt/refs/heads/main/module.json",
+  "download": "https://github.com/millerrichd/pentra-edgeliner-foundry-vtt/archive/refs/heads/main.zip",
+  "authors": [
+    {
+      "name": "Richard Miller",
+      "discord": "turtletopgames"
+    }
+  ],
+  "relationships": {
+    "systems": [
+      {
+        "id": "pentra-core-foundry-vtt",
+        "type": "system",
+        "manifest": "https://raw.githubusercontent.com/millerrichd/pentra-core-foundry-vtt/refs/heads/main/system.json",
+        "compatibility": {
+          "minimum": "0.5.1"
+        }
+      }
+    ]
+  },
+  "esmodules": [
+    "scripts/main.js"
+  ],
+  "styles": [
+    "css/edgeliner.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "documentTypes": {
+    "Item": {
+      "cyberware": {
+        "htmlFields": ["description"]
+      },
+      "cyberdeck": {
+        "htmlFields": ["description"]
+      },
+      "deckmodule": {
+        "htmlFields": ["description"]
+      },
+      "deckprogram": {
+        "htmlFields": ["description"]
+      }
+    }
+  },
+  "packs": [
+    { "name": "ancestries", "label": "Edgeliner Ancestries", "path": "packs/ancestries", "type": "Item", "system": "pentra-core-foundry-vtt", "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" } },
+    { "name": "hindrances", "label": "Edgeliner Hindrances", "path": "packs/hindrances", "type": "Item", "system": "pentra-core-foundry-vtt", "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" } },
+    { "name": "talents", "label": "Edgeliner Talents", "path": "packs/talents", "type": "Item", "system": "pentra-core-foundry-vtt", "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" } },
+    { "name": "armor", "label": "Edgeliner Armor", "path": "packs/armor", "type": "Item", "system": "pentra-core-foundry-vtt", "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" } },
+    { "name": "weapons", "label": "Edgeliner Weapons", "path": "packs/weapons", "type": "Item", "system": "pentra-core-foundry-vtt", "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" } },
+    { "name": "cybernetics", "label": "Cybernetics", "path": "packs/cybernetics", "type": "Item", "system": "pentra-core-foundry-vtt", "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" } },
+    { "name": "cyberdecks", "label": "CyberDecks, Modules & Programs", "path": "packs/cyberdecks", "type": "Item", "system": "pentra-core-foundry-vtt", "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" } },
+    { "name": "drones", "label": "Drones", "path": "packs/drones", "type": "Actor", "system": "pentra-core-foundry-vtt", "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" } },
+    { "name": "drone-mods", "label": "Drone Modifications", "path": "packs/drone-mods", "type": "Item", "system": "pentra-core-foundry-vtt", "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" } }
+  ],
+  "packFolders": [
+    {
+      "name": "Pentra Edgeliner",
+      "sorting": "m",
+      "packs": ["ancestries", "hindrances", "talents", "armor", "weapons", "cybernetics", "cyberdecks", "drones", "drone-mods"]
+    }
+  ],
+  "socket": true
+}

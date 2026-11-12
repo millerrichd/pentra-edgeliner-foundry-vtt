@@ -1,0 +1,24 @@
+{
+  "_id": "s4haEF27spy3k7n3",
+  "_key": "!items!s4haEF27spy3k7n3",
+  "name": "Uplifted Canine",
+  "type": "ancestry",
+  "img": "systems/pentra-core-foundry-vtt/assets/noun_ancestry_orange@512.webp",
+  "system": {
+    "description": "<p>Pet dogs given sentience, humanoid form, and opposable hands, with backward hind legs that make running natural. Stronger and a little bulkier than humans, with their breed's fur and features, four to five feet tall. Often pushed into security, emergency service, transport, frontier, and military work.</p><p><strong>Features:</strong> Attribute Boost: Might.</p>",
+    "attributeBoost": "might",
+    "size": "medium"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 200000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  }
+}

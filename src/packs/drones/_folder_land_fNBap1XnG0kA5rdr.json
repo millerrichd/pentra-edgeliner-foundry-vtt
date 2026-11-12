@@ -1,0 +1,17 @@
+{
+  "_id": "fNBap1XnG0kA5rdr",
+  "_key": "!folders!fNBap1XnG0kA5rdr",
+  "name": "Land",
+  "type": "Actor",
+  "folder": null,
+  "sorting": "m",
+  "sort": 200,
+  "color": null,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  },
+  "description": ""
+}

@@ -1,0 +1,29 @@
+{
+  "_id": "swL15YMDPgfffGBT",
+  "_key": "!items!swL15YMDPgfffGBT",
+  "name": "Burst",
+  "type": "pentra-edgeliner-foundry-vtt.deckprogram",
+  "img": "modules/pentra-edgeliner-foundry-vtt/assets/noun_cyberdeck_program_orange@512.webp",
+  "system": {
+    "description": "<p>This lowers the resistance check of Short Burst Hacking by 1.</p>",
+    "cost": {
+      "die": 4,
+      "multiplier": 1
+    },
+    "legal": true,
+    "program": "burst",
+    "installedIn": ""
+  },
+  "effects": [],
+  "folder": "pM9oKYV8YuPpJyPm",
+  "sort": 1200000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  }
+}

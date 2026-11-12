@@ -1,0 +1,17 @@
+{
+  "_id": "ecGEQkenQ0X8J5F4",
+  "_key": "!folders!ecGEQkenQ0X8J5F4",
+  "name": "Modules",
+  "type": "Item",
+  "folder": null,
+  "sorting": "m",
+  "sort": 200,
+  "color": null,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  },
+  "description": ""
+}

@@ -1,0 +1,40 @@
+{
+  "_id": "LTpHaAs1B5lNshfx",
+  "_key": "!items!LTpHaAs1B5lNshfx",
+  "name": "Body Armor, Medium",
+  "type": "armor",
+  "img": "systems/pentra-core-foundry-vtt/assets/noun_modern_armor_orange@512.webp",
+  "system": {
+    "description": "<p>A full suit of body armor, designed for balanced mobility and defense.</p><p><em>In Edgeliner the core Body Armor counts as the light model.</em></p>",
+    "legal": false,
+    "ar": 3,
+    "size": "large",
+    "evasion": -3,
+    "cost": {
+      "die": 8,
+      "multiplier": 3
+    },
+    "layerable": false,
+    "heavy": false,
+    "durability": null,
+    "equipped": false,
+    "coverage": {
+      "torso": true,
+      "arms": true,
+      "legs": true,
+      "head": true
+    }
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 200000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  }
+}

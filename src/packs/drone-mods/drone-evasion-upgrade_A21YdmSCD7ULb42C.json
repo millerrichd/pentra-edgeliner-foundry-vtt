@@ -1,0 +1,27 @@
+{
+  "_id": "A21YdmSCD7ULb42C",
+  "_key": "!items!A21YdmSCD7ULb42C",
+  "name": "Drone Evasion Upgrade",
+  "type": "vehiclemod",
+  "img": "systems/pentra-core-foundry-vtt/assets/noun_vehicle_modifications_orange@512.webp",
+  "system": {
+    "description": "<p>Increase the drone's Evasion by +1, up to a maximum of +3 increases.</p><p><em>Each modification raises the drone's cost by one multiplier level; no drone may exceed d12x6 R.D. Added after the drone is acquired, each modification costs d4 R.D.</em></p>",
+    "mod": "evasion",
+    "cost": {
+      "die": 4,
+      "multiplier": 1
+    }
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 300000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  }
+}

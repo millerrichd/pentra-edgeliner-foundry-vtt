@@ -1,0 +1,52 @@
+<section class="item-details">
+  <div class="form-group">
+    <label>{{localize "EDGELINER.Trait.strain"}}</label>
+    <input type="number" name="system.strain" value="{{system.strain}}" min="0">
+    <p class="hint">{{localize "EDGELINER.Strain.ItemHint"}}</p>
+  </div>
+  <div class="form-group">
+    <label>{{localize "EDGELINER.Cyber.Effect.label"}}</label>
+    <select name="system.effect">{{selectOptions options.cyberEffects selected=system.effect localize=true}}</select>
+  </div>
+  {{#if (eq system.effect "skillAdvantage")}}
+  <div class="form-group">
+    <label>{{localize "PENTRA.Attribute.label"}}</label>
+    <select name="system.attribute">{{selectOptions options.attributes selected=system.attribute localize=true}}</select>
+  </div>
+  {{/if}}
+  {{#if (eq system.effect "resistAdvantage")}}
+  <div class="form-group">
+    <label>{{localize "PENTRA.Resistances"}}</label>
+    <select name="system.resistance">{{selectOptions options.resistances selected=system.resistance localize=true}}</select>
+  </div>
+  {{/if}}
+  {{#if (eq system.effect "limb")}}
+  <div class="form-group">
+    <label>{{localize "EDGELINER.Cyber.Limb"}}</label>
+    <select name="system.location">{{selectOptions options.limbs selected=system.location localize=true}}</select>
+    <p class="hint">{{localize "EDGELINER.Cyber.LimbHint"}}</p>
+  </div>
+  {{/if}}
+  {{#if (eq system.effect "skillChip")}}
+  <div class="form-group">
+    <label>{{localize "EDGELINER.Chip.Skill"}}</label>
+    <select name="system.skill">{{selectOptions options.chipSkills selected=system.skill}}</select>
+  </div>
+  <div class="form-group">
+    <label>{{localize "EDGELINER.Chip.Slotted"}}</label>
+    <input type="checkbox" name="system.slotted" {{checked system.slotted}}>
+  </div>
+  {{/if}}
+  {{#if (eq system.effect "subdermal")}}
+  <div class="form-group">
+    <label>{{localize "PENTRA.Kit.Usage"}}</label>
+    <select name="system.usage" data-dtype="Number">{{selectOptions options.usageDice selected=system.usage}}</select>
+    <p class="hint">{{localize "EDGELINER.Cyber.SubdermalHint"}}</p>
+  </div>
+  {{/if}}
+  <div class="form-group">
+    <label>{{localize "EDGELINER.Burst.DisabledRounds"}}</label>
+    <input type="number" name="system.disabled" value="{{system.disabled}}" min="0" {{#unless isGM}}disabled{{/unless}}>
+  </div>
+  {{> "systems/pentra-core-foundry-vtt/templates/item/physical.hbs"}}
+</section>

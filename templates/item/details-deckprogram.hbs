@@ -1,0 +1,9 @@
+<section class="item-details">
+  <div class="form-group">
+    <label>{{localize "EDGELINER.Program.label"}}</label>
+    <select name="system.program">{{selectOptions options.programs selected=system.program localize=true}}</select>
+  </div>
+  <p class="hint">{{system.summary}}</p>
+  <p class="hint">{{localize "EDGELINER.Deck.ProgramHint"}}</p>
+  {{> "systems/pentra-core-foundry-vtt/templates/item/physical.hbs"}}
+</section>

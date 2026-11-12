@@ -1,0 +1,17 @@
+{
+  "_id": "veLbO8gORcb4Hnby",
+  "_key": "!folders!veLbO8gORcb4Hnby",
+  "name": "Sea",
+  "type": "Actor",
+  "folder": null,
+  "sorting": "m",
+  "sort": 300,
+  "color": null,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  },
+  "description": ""
+}

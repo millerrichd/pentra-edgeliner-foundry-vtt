@@ -1,0 +1,25 @@
+{
+  "_id": "9KfCZdy4znkUSAtc",
+  "_key": "!items!9KfCZdy4znkUSAtc",
+  "name": "Improved Controlled Power",
+  "type": "talent",
+  "img": "systems/pentra-core-foundry-vtt/assets/noun_talent_orange@512.webp",
+  "system": {
+    "description": "<p><strong>Requires:</strong> Controlled Power.</p><p>Your maximum Drain Die is increased from d10 to d12.</p>",
+    "trait": "drainDie",
+    "delta": 1,
+    "requires": "Controlled Power"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 200000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  }
+}

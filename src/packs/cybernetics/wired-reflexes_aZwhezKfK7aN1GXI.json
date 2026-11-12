@@ -1,0 +1,36 @@
+{
+  "_id": "aZwhezKfK7aN1GXI",
+  "_key": "!items!aZwhezKfK7aN1GXI",
+  "name": "Wired Reflexes",
+  "type": "pentra-edgeliner-foundry-vtt.cyberware",
+  "img": "modules/pentra-edgeliner-foundry-vtt/assets/noun_cybernetic_orange@512.webp",
+  "system": {
+    "description": "<p>Reflexes are wired to be hyper-quick. Grants advantage on initiative rolls.</p>",
+    "cost": {
+      "die": 8,
+      "multiplier": 2
+    },
+    "legal": true,
+    "strain": 2,
+    "effect": "initiative",
+    "attribute": "",
+    "resistance": "",
+    "location": "arms",
+    "skill": "",
+    "slotted": false,
+    "usage": null,
+    "disabled": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 2100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  }
+}

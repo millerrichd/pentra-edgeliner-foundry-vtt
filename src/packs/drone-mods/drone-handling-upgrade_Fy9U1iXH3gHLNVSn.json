@@ -1,0 +1,27 @@
+{
+  "_id": "Fy9U1iXH3gHLNVSn",
+  "_key": "!items!Fy9U1iXH3gHLNVSn",
+  "name": "Drone Handling Upgrade",
+  "type": "vehiclemod",
+  "img": "systems/pentra-core-foundry-vtt/assets/noun_vehicle_modifications_orange@512.webp",
+  "system": {
+    "description": "<p>Increase the drone's Handling by +1 (added to skill checks when maneuvering). It can not be increased above +2.</p><p><em>Each modification raises the drone's cost by one multiplier level; no drone may exceed d12x6 R.D. Added after the drone is acquired, each modification costs d4 R.D.</em></p>",
+    "mod": "handling",
+    "cost": {
+      "die": 4,
+      "multiplier": 1
+    }
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 400000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "_id": "LedQP0U4sPw0UdbM",
+  "_key": "!items!LedQP0U4sPw0UdbM",
+  "name": "Warhammer",
+  "type": "pentra-edgeliner-foundry-vtt.deckprogram",
+  "img": "modules/pentra-edgeliner-foundry-vtt/assets/noun_cyberdeck_program_orange@512.webp",
+  "system": {
+    "description": "<p>Raise the damage increment from odd → even → every. If you are already at “every,” then you gain an additional Wound automatically.</p>",
+    "cost": {
+      "die": 4,
+      "multiplier": 1
+    },
+    "legal": true,
+    "program": "warhammer",
+    "installedIn": ""
+  },
+  "effects": [],
+  "folder": "pM9oKYV8YuPpJyPm",
+  "sort": 1600000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  }
+}

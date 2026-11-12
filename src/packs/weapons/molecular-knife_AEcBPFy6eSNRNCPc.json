@@ -1,0 +1,39 @@
+{
+  "_id": "AEcBPFy6eSNRNCPc",
+  "_key": "!items!AEcBPFy6eSNRNCPc",
+  "name": "Molecular Knife",
+  "type": "weapon",
+  "img": "systems/pentra-core-foundry-vtt/assets/noun_melee_weapon_orange@512.webp",
+  "system": {
+    "description": "<p>A ceramic knife with a near-molecular thickness at its edge.</p>",
+    "heavy": false,
+    "burning": false,
+    "reloadActions": 0,
+    "category": "melee",
+    "skill": "melee_weapons",
+    "wounds": 2,
+    "increment": "odd",
+    "range": "melee",
+    "hands": 1,
+    "size": "small",
+    "legal": false,
+    "cost": {
+      "die": 6,
+      "multiplier": 2
+    },
+    "slot": "stowed",
+    "underwater": "reduced"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  }
+}

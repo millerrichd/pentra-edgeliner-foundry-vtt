@@ -1,0 +1,193 @@
+<div class="delve-body">
+  <p class="hint">{{#if isGM}}{{localize "EDGELINER.Delve.Intro"}}{{else}}{{localize "EDGELINER.Delve.PlayerIntro"}}{{/if}}</p>
+  <div class="delve-list">
+    {{#each delves as |d|}}
+    <section class="delve {{#if d.shutdown}}shutdown{{/if}} {{#if d.boosted}}boosted{{/if}} {{#if d.collapsed}}collapsed{{/if}}" data-delve-id="{{d.id}}">
+      <header class="delve-header">
+        <a class="icon collapse-toggle" data-action="toggleCollapse" data-tooltip="{{localize (ifThen d.collapsed 'EDGELINER.Delve.Expand' 'EDGELINER.Delve.Collapse')}}"><i class="fa-solid {{#if d.collapsed}}fa-chevron-right{{else}}fa-chevron-down{{/if}}"></i></a>
+        {{#if @root.isGM}}
+        <input type="text" class="delve-name" data-delve-field="name" value="{{d.name}}">
+        <select data-delve-field="rank">{{selectOptions d.ranks selected=d.rank localize=true}}</select>
+        <a class="icon" data-action="remove" data-tooltip="{{localize 'EDGELINER.Delve.Remove'}}"><i class="fa-solid fa-trash"></i></a>
+        {{else}}
+        <strong class="delve-name">{{d.name}}</strong>
+        <span class="hint">{{localize "EDGELINER.Delve.SecurityRank"}}: {{d.rankLabel}}</span>
+        {{/if}}
+      </header>
+      {{#if d.collapsed}}
+      <p class="delve-summary hint">
+        {{#if d.hackerCount}}<i class="fa-solid fa-users"></i> {{d.summaryNames}}{{else}}<i class="fa-solid fa-user-slash"></i> {{localize "EDGELINER.Delve.NoHackerShort"}}{{/if}}
+        {{#if (gt d.runs.length 1)}}· {{localize "EDGELINER.Delve.RunsCount" n=d.runs.length}}{{/if}}
+        · {{localize "EDGELINER.Delve.Searches" n=d.searches}}
+        · {{localize "EDGELINER.Delve.Caches" n=d.recovered}}
+        {{#if d.seeAlert}}· {{localize "EDGELINER.Delve.Alert"}} {{d.alert}}/{{d.threshold}}{{/if}}
+        {{#if d.fighting}}· <span class="warning"><i class="fa-solid fa-shield-virus"></i> {{localize "EDGELINER.Delve.SecurityTitle"}}</span>{{/if}}
+        {{#if d.shutdown}}· <span class="warning"><i class="fa-solid fa-lock"></i> {{localize "EDGELINER.Delve.ShutdownShort"}}</span>{{/if}}
+      </p>
+      {{else}}
+      {{#if @root.isGM}}<p class="hint">{{d.secLabel}}</p>{{/if}}
+
+      <div class="delve-status">
+        {{#if d.seeAlert}}
+        <span class="alert {{d.state}}">
+          {{localize "EDGELINER.Delve.Alert"}} <strong>{{d.alert}}</strong>
+          {{#if @root.isGM}}
+          <a data-action="alert" data-delta="-1"><i class="fa-solid fa-minus"></i></a>
+          <a data-action="alert" data-delta="1"><i class="fa-solid fa-plus"></i></a>
+          {{/if}}
+        </span>
+        {{/if}}
+        {{#if @root.isGM}}
+        <label data-tooltip="{{localize 'EDGELINER.Delve.ThresholdHint'}}">{{localize "EDGELINER.Delve.Threshold"}} <input type="number" class="inline-num" data-delve-field="threshold" value="{{d.threshold}}" min="1"></label>
+        <span class="hint">{{localize "EDGELINER.Delve.ShutdownAt" n=d.shutdownAt}}</span>
+        <label data-tooltip="{{localize 'EDGELINER.Delve.IntegrityHint'}}">{{localize "EDGELINER.Delve.Integrity"}} <input type="number" class="inline-num" data-delve-field="integrity" value="{{d.integrity}}" min="1"></label>
+        <label class="checkbox" data-tooltip="{{localize 'EDGELINER.Delve.ShowAlertHint'}}"><input type="checkbox" data-delve-field="showAlert" {{checked d.showAlert}}> {{localize "EDGELINER.Delve.ShowAlert"}}</label>
+        {{/if}}
+        <span>{{localize "EDGELINER.Delve.Searches" n=d.searches}}</span>
+        <span>{{localize "EDGELINER.Delve.Caches" n=d.recovered}}</span>
+      </div>
+      {{#if d.boosted}}<p class="warning"><i class="fa-solid fa-triangle-exclamation"></i> {{localize "EDGELINER.Delve.Boosted"}}</p>{{/if}}
+      {{#if d.shutdown}}<p class="warning"><i class="fa-solid fa-lock"></i> {{localize "EDGELINER.Delve.Shutdown"}}</p>{{/if}}
+
+      {{! Runs: hackers moving together. Each searches on its own. }}
+      <div class="delve-runs">
+        {{#each d.runs as |r|}}
+        <div class="run" data-run-id="{{r.id}}">
+          <header class="run-header">
+            <strong><i class="fa-solid fa-route"></i> {{#if (gt d.runs.length 1)}}{{localize "EDGELINER.Delve.RunN" n=r.n}}: {{/if}}{{r.label}}</strong>
+            <span class="hint">{{localize "EDGELINER.Delve.Round" n=r.round}}</span>
+            {{#if r.canSearch}}<button type="button" data-action="round" data-uuid="{{r.searcher}}"><i class="fa-solid fa-dice-d12"></i> {{localize "EDGELINER.Delve.NextRound"}}</button>
+            {{else if (and r.mine (or r.gate r.fight))}}<span class="hint">{{localize "EDGELINER.Delve.DealFirst"}}</span>{{/if}}
+            {{#if @root.isGM}}<a class="icon" data-action="cacheAdd" data-tooltip="{{localize 'EDGELINER.Delve.CacheAdd'}}"><i class="fa-solid fa-database"></i></a>{{/if}}
+          </header>
+
+          <ul class="run-members" style="list-style:none;margin:0;padding:0;">
+            {{#each r.members as |m|}}
+            <li class="member {{#if m.access}}in{{/if}}" data-uuid="{{m.uuid}}" style="display:flex;flex-wrap:wrap;align-items:center;gap:0.35rem;">
+              <a class="member-name" data-action="openHacker" style="display:inline-flex;align-items:center;gap:0.3rem;"><img class="member-img" src="{{m.img}}" alt="" width="22" height="22" style="width:22px;height:22px;flex:0 0 22px;display:inline-block;"> {{m.name}}</a>
+              <span class="hint">{{localize "PENTRA.Skill.hacking"}} {{m.hacking}}</span>
+              {{#if m.deck}}<span class="hint">· {{m.deck.name}}: {{localize "PENTRA.Trait.health"}} {{m.deck.health}}/{{m.deck.max}} · {{localize "PENTRA.Trait.evasion"}} {{m.deck.evasion}} · AR {{m.deck.armor}} · {{m.deck.damage}}</span>{{/if}}
+              {{#if m.access}}<span class="connected"><i class="fa-solid fa-plug"></i> {{localize "EDGELINER.Delve.Connected"}}</span>{{/if}}
+              {{#if m.problem}}<span class="warning">{{m.problem}}</span>{{/if}}
+              {{#if m.gateTried}}<span class="gate-tried {{m.gateTried}}">{{localize (ifThen (eq m.gateTried "through") "EDGELINER.Delve.GotThrough" "EDGELINER.Delve.Tripped")}}</span>{{/if}}
+              <span class="member-controls" style="margin-left:auto;display:inline-flex;align-items:center;gap:0.3rem;">
+                {{#if m.canAccess}}<button type="button" data-action="access"><i class="fa-solid fa-door-open"></i> {{localize "EDGELINER.Delve.Access"}}</button>
+                {{else if m.waiting}}<span class="hint" data-tooltip="{{localize 'EDGELINER.Delve.WaitRetryHint'}}"><i class="fa-solid fa-hourglass-half"></i> {{localize "EDGELINER.Delve.WaitRetry"}}</span>{{/if}}
+                {{#if m.canEvade}}<button type="button" data-action="evade"><i class="fa-solid fa-key"></i> {{localize "EDGELINER.Delve.Evade"}}{{#if m.deck.stealth}} (+1){{/if}}</button>{{/if}}
+                {{#if m.canSplit}}<a class="icon" data-action="split" data-tooltip="{{localize 'EDGELINER.Delve.SplitHint'}}"><i class="fa-solid fa-code-branch"></i></a>{{/if}}
+                {{#if m.mergeTargets.length}}<select class="merge-run" data-tooltip="{{localize 'EDGELINER.Delve.MergeHint'}}"><option value="">{{localize "EDGELINER.Delve.MergeInto"}}</option>{{#each m.mergeTargets as |t|}}<option value="{{t.id}}">{{t.label}}</option>{{/each}}</select>{{/if}}
+                {{#if m.mine}}<a class="icon" data-action="jackOut" data-tooltip="{{localize 'EDGELINER.Delve.JackOut'}}"><i class="fa-solid fa-plug-circle-xmark"></i></a>{{/if}}
+              </span>
+            </li>
+            {{/each}}
+          </ul>
+
+          {{#if r.gate}}
+          <div class="encounter gate">
+            <strong><i class="fa-solid fa-key"></i> {{localize "EDGELINER.Delve.GateTitle"}}</strong>
+            {{#if r.gate.waiting.length}}<span class="hint">{{localize "EDGELINER.Delve.GateWaitingShort" names=r.gate.waitingText}}</span>{{/if}}
+            {{#if r.leaver}}<button type="button" data-action="leaveGate" data-uuid="{{r.leaver}}">{{localize "EDGELINER.Delve.LeaveGate"}}</button>{{/if}}
+          </div>
+          {{/if}}
+
+          {{#with r.fight as |f|}}
+          <div class="encounter security">
+            <strong><i class="fa-solid fa-shield-virus"></i> {{localize "EDGELINER.Delve.SecurityTitle"}}</strong>
+            <span>{{#if @root.isGM}}{{localize "EDGELINER.Delve.Integrity"}} {{f.wounds}} / {{d.integrity}}{{else}}{{localize "EDGELINER.Delve.DamageDealt"}} {{f.wounds}}{{/if}}</span>
+            <div class="initiative">
+              {{#if f.rolled}}
+              <span class="hint">{{localize "EDGELINER.Delve.Exchange" n=f.exchange}}</span>
+              {{#each f.sides as |s|}}
+              <span class="side {{#if s.active}}active{{/if}} {{#if s.isSecurity}}security-side{{/if}}">{{#if s.active}}<i class="fa-solid fa-caret-right"></i> {{/if}}{{s.name}}: {{s.die}} · {{s.total}} · {{localize "EDGELINER.Delve.ActionsLeft" n=s.actions}}</span>
+              {{/each}}
+              {{else}}
+              <span class="warning">{{localize "EDGELINER.Delve.NeedInitiative"}}</span>
+              {{/if}}
+            </div>
+            <div class="button-row">
+              {{#with f.myTurn as |t|}}
+              <span class="turn-of" data-uuid="{{t.uuid}}">
+                <button type="button" data-action="hackerAttack"><i class="fa-solid fa-code"></i> {{localize "EDGELINER.Delve.AttackAs" name=t.name}}</button>
+                {{#if t.deck.smoke}}<button type="button" data-action="smoke"><i class="fa-solid fa-smog"></i> {{localize "EDGELINER.Program.smoke.Name"}}</button>{{/if}}
+                <button type="button" data-action="pass" data-side="{{t.uuid}}" data-tooltip="{{localize 'EDGELINER.Delve.PassHint'}}"><i class="fa-solid fa-forward"></i> {{localize "EDGELINER.Delve.Pass"}}</button>
+              </span>
+              {{/with}}
+              {{#if @root.isGM}}
+              <select class="sec-target" data-tooltip="{{localize 'EDGELINER.Delve.TargetHint'}}">{{#each f.targets as |t|}}<option value="{{t.uuid}}">{{t.name}}</option>{{/each}}</select>
+              <button type="button" data-action="securityAttack" {{#unless f.securityTurn}}disabled{{/unless}}><i class="fa-solid fa-shield-virus"></i> {{localize "EDGELINER.Delve.SecurityAttack"}}</button>
+              <button type="button" data-action="pass" data-side="security" {{#unless f.securityTurn}}disabled{{/unless}} data-tooltip="{{localize 'EDGELINER.Delve.PassSecurityHint'}}"><i class="fa-solid fa-forward"></i> {{localize "EDGELINER.Delve.PassSecurity"}}</button>
+              <button type="button" data-action="initiative" data-tooltip="{{localize 'EDGELINER.Delve.RerollHint'}}"><i class="fa-solid fa-dice-d6"></i> {{localize "EDGELINER.Delve.Reroll"}}</button>
+              <button type="button" data-action="endEncounter"><i class="fa-solid fa-xmark"></i> {{localize "EDGELINER.Delve.EndEncounter"}}</button>
+              {{/if}}
+            </div>
+          </div>
+          {{/with}}
+        </div>
+        {{/each}}
+        <em class="drop-hint"><i class="fa-solid fa-user-plus"></i> {{#if @root.isGM}}{{localize "EDGELINER.Delve.DropHacker"}}{{else}}{{localize "EDGELINER.Delve.DropYours"}}{{/if}}</em>
+      </div>
+
+      {{#if (or d.caches.length @root.isGM)}}
+      <div class="delve-caches">
+        <strong><i class="fa-solid fa-database"></i> {{localize "EDGELINER.Delve.CachesRecovered" n=d.recovered found=d.caches.length}}</strong>
+        {{#if d.caches.length}}
+        <ol>
+          {{#each d.caches as |c|}}
+          <li class="cache {{c.status}}" data-cache-id="{{c.id}}">
+            <span class="cache-meta">{{#if c.round}}{{localize "EDGELINER.Delve.CacheRound" n=c.round}}{{/if}}
+              {{#if @root.isGM}}<select data-cache-field="status">{{selectOptions d.cacheStatuses selected=c.status localize=true}}</select>
+              {{else}}<span class="status">{{c.statusLabel}}</span>{{/if}}
+              {{#if @root.isGM}}<select data-cache-field="value" data-tooltip="{{localize 'EDGELINER.DataCache.ValueHint'}}"><option value=""></option>{{selectOptions d.cacheValues selected=c.value localize=true}}</select>
+              {{else if c.valueLabel}}<span class="value-tag {{c.value}}">{{c.valueLabel}}</span>{{/if}}
+              {{#if c.by}}<span class="hint">{{localize "EDGELINER.Delve.CacheBy" name=c.by}}</span>{{/if}}
+            </span>
+            {{#if @root.isGM}}
+            <input type="text" data-cache-field="contents" value="{{c.contents}}" placeholder="{{localize 'EDGELINER.Delve.CacheContents'}}">
+            <span class="worth" data-tooltip="{{localize 'EDGELINER.DataCache.WorthHint'}}"><i class="fa-solid fa-coins"></i>
+              <select data-cache-field="worthDie"><option value="0">—</option>{{selectOptions d.worthDice selected=c.worthDie}}</select>
+              <select data-cache-field="worthMult">{{selectOptions d.worthMults selected=c.worthMult}}</select></span>
+            {{#if c.shareLabel}}<span class="hint">{{c.shareLabel}}</span>{{/if}}
+            {{#if c.canGive}}<a class="icon" data-action="cacheGive" data-tooltip="{{localize 'EDGELINER.Delve.CacheGive'}}"><i class="fa-solid fa-file-export"></i></a>
+            {{else if c.given}}<span class="hint" data-tooltip="{{localize 'EDGELINER.Delve.CacheGivenHint'}}"><i class="fa-solid fa-check"></i></span>{{/if}}
+            <a class="icon" data-action="cacheRemove" data-tooltip="{{localize 'EDGELINER.Delve.CacheRemove'}}"><i class="fa-solid fa-trash"></i></a>
+            {{else if (eq c.status "recovered")}}
+            <span class="contents">{{#if c.shown}}{{c.shown}}{{else}}<em class="hint">{{localize "EDGELINER.Delve.CacheNoContents"}}</em>{{/if}}</span>
+            {{#if c.worthLabel}}<span class="worth"><i class="fa-solid fa-coins"></i> {{c.worthLabel}}</span>{{/if}}
+            {{#if c.shareLabel}}<span class="hint">{{c.shareLabel}}</span>{{/if}}
+            {{else if (eq c.status "locked")}}
+            <em class="hint">{{localize "EDGELINER.Delve.CacheHidden"}}</em>
+            {{/if}}
+          </li>
+          {{/each}}
+        </ol>
+        {{/if}}
+        {{#if @root.isGM}}
+        <div class="cache-actions">
+          {{#if d.readyCount}}<button type="button" data-action="cacheGiveAll" data-tooltip="{{localize 'EDGELINER.Delve.SendReadyHint'}}"><i class="fa-solid fa-file-export"></i> {{localize "EDGELINER.Delve.SendReady" n=d.readyCount}}</button>{{/if}}
+          {{#if d.waitingCount}}<span class="hint">{{localize "EDGELINER.Delve.Waiting" n=d.waitingCount}}</span>{{/if}}
+        </div>
+        {{/if}}
+      </div>
+      {{/if}}
+
+      {{#if d.log.length}}
+      <div class="delve-history">
+        <strong><i class="fa-solid fa-scroll"></i> {{localize "EDGELINER.Delve.History" n=d.log.length}}</strong>
+        <ol class="delve-log">{{#each d.log as |e|}}<li>{{#if e.round}}<span class="log-round">{{localize "EDGELINER.Delve.LogRound" n=e.round}}</span> {{/if}}{{#if e.who}}<span class="log-who">{{e.who}}:</span> {{/if}}{{#if e.parts}}{{#each e.parts as |p|}}{{#if p.strong}}<strong class="goes-first">{{p.text}}</strong>{{else}}{{p.text}}{{/if}} {{/each}}{{else}}{{e.text}}{{/if}}{{#if e.secret}} <span class="secret">{{e.secret}}</span>{{/if}}</li>{{/each}}</ol>
+      </div>
+      {{/if}}
+      {{/if}}
+    </section>
+    {{else}}
+    <p class="hint empty">{{#if isGM}}{{localize "EDGELINER.Delve.None"}}{{else}}{{localize "EDGELINER.Delve.NoneForYou"}}{{/if}}</p>
+    {{/each}}
+  </div>
+  <footer class="button-row">
+    {{#if isGM}}<button type="button" data-action="add"><i class="fa-solid fa-plus"></i> {{localize "EDGELINER.Delve.Add"}}</button>{{/if}}
+    {{#if readyTotal}}<button type="button" data-action="cacheGiveEverywhere" data-tooltip="{{localize 'EDGELINER.Delve.SendReadyHint'}}"><i class="fa-solid fa-file-export"></i> {{localize "EDGELINER.Delve.SendAllReady" n=readyTotal}}</button>{{/if}}
+    {{#if delves.length}}
+    <button type="button" data-action="collapseAll"><i class="fa-solid fa-angles-up"></i> {{localize "EDGELINER.Delve.CollapseAll"}}</button>
+    <button type="button" data-action="expandAll"><i class="fa-solid fa-angles-down"></i> {{localize "EDGELINER.Delve.ExpandAll"}}</button>
+    {{/if}}
+  </footer>
+</div>

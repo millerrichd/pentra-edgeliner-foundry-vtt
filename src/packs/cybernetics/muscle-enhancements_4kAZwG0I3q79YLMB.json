@@ -1,0 +1,36 @@
+{
+  "_id": "4kAZwG0I3q79YLMB",
+  "_key": "!items!4kAZwG0I3q79YLMB",
+  "name": "Muscle Enhancements",
+  "type": "pentra-edgeliner-foundry-vtt.cyberware",
+  "img": "modules/pentra-edgeliner-foundry-vtt/assets/noun_cybernetic_orange@512.webp",
+  "system": {
+    "description": "<p>Muscle weaves increase the impact of physical punches and melee strikes. On a melee hit the target makes a Reflex resistance check or is knocked prone.</p>",
+    "cost": {
+      "die": 8,
+      "multiplier": 2
+    },
+    "legal": true,
+    "strain": 2,
+    "effect": "muscle",
+    "attribute": "",
+    "resistance": "",
+    "location": "arms",
+    "skill": "",
+    "slotted": false,
+    "usage": null,
+    "disabled": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 1400000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  }
+}

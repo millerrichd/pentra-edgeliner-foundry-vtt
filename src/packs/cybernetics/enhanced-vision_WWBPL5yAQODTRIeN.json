@@ -1,0 +1,36 @@
+{
+  "_id": "WWBPL5yAQODTRIeN",
+  "_key": "!items!WWBPL5yAQODTRIeN",
+  "name": "Enhanced Vision",
+  "type": "pentra-edgeliner-foundry-vtt.cyberware",
+  "img": "modules/pentra-edgeliner-foundry-vtt/assets/noun_cybernetic_orange@512.webp",
+  "system": {
+    "description": "<p>50x magnification and light-enhancing optics. Grants advantage on sight checks (choose advantage in the roll dialog).</p>",
+    "cost": {
+      "die": 6,
+      "multiplier": 2
+    },
+    "legal": true,
+    "strain": 1,
+    "effect": "none",
+    "attribute": "",
+    "resistance": "",
+    "location": "arms",
+    "skill": "",
+    "slotted": false,
+    "usage": null,
+    "disabled": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 1300000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  }
+}

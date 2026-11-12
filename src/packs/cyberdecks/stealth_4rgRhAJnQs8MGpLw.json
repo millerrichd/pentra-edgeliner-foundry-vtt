@@ -1,0 +1,29 @@
+{
+  "_id": "4rgRhAJnQs8MGpLw",
+  "_key": "!items!4rgRhAJnQs8MGpLw",
+  "name": "Stealth",
+  "type": "pentra-edgeliner-foundry-vtt.deckprogram",
+  "img": "modules/pentra-edgeliner-foundry-vtt/assets/noun_cyberdeck_program_orange@512.webp",
+  "system": {
+    "description": "<p>+1 Hacking to evade obstacles when Long Delve Hacking.</p>",
+    "cost": {
+      "die": 4,
+      "multiplier": 1
+    },
+    "legal": true,
+    "program": "stealth",
+    "installedIn": ""
+  },
+  "effects": [],
+  "folder": "pM9oKYV8YuPpJyPm",
+  "sort": 1400000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  }
+}

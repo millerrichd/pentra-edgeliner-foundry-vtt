@@ -1,0 +1,136 @@
+{{#with edgeliner.powers as |p|}}
+<section class="tab powers-tab edgeliner-tab {{@root.tab.cssClass}}" data-group="primary" data-tab="powers">
+  <section class="panel power-panel">
+    <div class="power-summary">
+      <div class="stat">
+        <label>{{localize "EDGELINER.Power.Tradition"}}</label>
+        <strong>{{#if p.traditionLabel}}{{p.traditionLabel}}{{else}}—{{/if}}</strong>
+      </div>
+      <div class="stat">
+        <label>{{localize "EDGELINER.Attribute.power"}}</label>
+        <strong>{{p.attribute}}</strong>
+        <span class="hint" data-tooltip="{{localize 'EDGELINER.Power.PABHint'}}">PAB {{p.pab}}</span>
+      </div>
+      <div class="stat">
+        <label>{{localize "PENTRA.Trait.drainDie"}}</label>
+        <strong class="{{#if p.drain.empty}}warning{{/if}}">{{p.drain.value}} / {{p.drain.max}}</strong>
+        <button type="button" class="icon-btn" data-action="center" {{#if p.drain.full}}disabled{{/if}} data-tooltip="{{localize 'EDGELINER.Drain.CenterHint'}}"><i class="fa-solid fa-spa"></i> {{localize "EDGELINER.Drain.Center"}}</button>
+      </div>
+      <div class="stat" data-tooltip="{{localize 'EDGELINER.Strain.PowerPenaltyHint'}}">
+        <label>{{localize "EDGELINER.Strain.PowerPenalty"}}</label>
+        <strong class="{{#if p.strain}}warning{{/if}}">{{#if p.strain}}−{{p.strain}}{{else}}0{{/if}}</strong>
+      </div>
+    </div>
+    <p class="hint">{{localize "EDGELINER.Drain.RestHint"}}</p>
+  </section>
+
+  {{#if p.noPowers}}
+  <p class="notice"><i class="fa-solid fa-robot"></i> {{localize "EDGELINER.Power.NoPowersHint"}}</p>
+  {{else if (not p.tradition)}}
+  <p class="notice"><i class="fa-solid fa-circle-info"></i> {{localize "EDGELINER.Power.NoTraditionHint"}}</p>
+  {{else}}
+
+  <div class="button-row power-actions">
+    <button type="button" data-action="openCaster"><i class="fa-solid fa-hand-sparkles"></i> {{localize "EDGELINER.Caster.Open"}}</button>
+  </div>
+
+  {{! Psychic Disciplines }}
+  {{#if (eq p.tradition "psychic")}}
+  <section class="item-section">
+    <header class="item-header">
+      <h3>{{localize "EDGELINER.Power.Disciplines"}}</h3>
+      <span class="hint">{{localize "EDGELINER.Power.RatingHint"}}</span>
+    </header>
+    {{#each p.disciplines as |d|}}
+    <div class="discipline">
+      <div class="discipline-name"><strong>{{d.label}}</strong> <span class="rank-tag">{{d.rank}}</span></div>
+      <ol class="item-list">
+        {{#each d.powers as |pw|}}
+        <li class="item-row {{#if pw.locked}}locked{{/if}}" data-tooltip="{{pw.text}}">
+          <span class="item-name"><span class="rating">{{pw.rating}}</span> {{pw.name}}</span>
+          <span class="controls">
+            {{#if pw.locked}}<i class="fa-solid fa-lock" data-tooltip="{{localize 'EDGELINER.Caster.Locked'}}"></i>
+            {{else}}<a data-action="openCaster" data-discipline="{{d.id}}" data-power="{{pw.id}}" data-tooltip="{{localize 'EDGELINER.Caster.Build'}}"><i class="fa-solid fa-hand-sparkles"></i></a>{{/if}}
+          </span>
+        </li>
+        {{/each}}
+      </ol>
+    </div>
+    {{else}}
+    <p class="hint">{{localize "EDGELINER.Power.TrainHint"}}</p>
+    {{/each}}
+  </section>
+  {{/if}}
+
+  {{! Totem Aspects }}
+  {{#if (eq p.tradition "totem")}}
+  <section class="item-section">
+    <header class="item-header">
+      <h3>{{localize "EDGELINER.Totem.Animal"}}</h3>
+      <select class="totem-select" {{#unless @root.editable}}disabled{{/unless}}>
+        <option value="" {{#unless p.animal}}selected{{/unless}}>{{localize "EDGELINER.Totem.Choose"}}</option>
+        {{selectOptions p.animals selected=p.animal}}
+      </select>
+    </header>
+    {{#if p.animalText}}<p class="hint">{{p.animalText}}</p>{{else}}<p class="hint warning">{{localize "EDGELINER.Totem.NoAnimal"}}</p>{{/if}}
+    <ol class="item-list aspect-list">
+      <li class="item-row header-row"><span class="item-name">{{localize "EDGELINER.Totem.Aspect"}}</span><span class="col narrow">{{localize "PENTRA.Skill.label"}}</span><span class="col">{{localize "EDGELINER.Totem.Limit"}}</span><span class="controls"></span></li>
+      {{#each p.aspects as |a|}}
+      <li class="item-row {{#unless a.known}}unequipped{{/unless}}" data-tooltip="{{a.text}}">
+        <span class="item-name">{{a.name}}</span>
+        <span class="col narrow">{{a.rank}}</span>
+        <span class="col">{{a.cap}}</span>
+        <span class="controls">{{#if a.known}}<a data-action="openCaster" data-aspect="{{a.id}}" data-tooltip="{{localize 'EDGELINER.Caster.Build'}}"><i class="fa-solid fa-hand-sparkles"></i></a>{{/if}}</span>
+      </li>
+      {{/each}}
+    </ol>
+  </section>
+  {{/if}}
+
+  {{! Words of Power }}
+  {{#if (eq p.tradition "words")}}
+  <section class="item-section">
+    <header class="item-header"><h3>{{localize "EDGELINER.Power.Words"}}</h3><span class="hint">{{localize "EDGELINER.Words.Hint"}}</span></header>
+    <div class="word-columns">
+      {{#each p.words as |g|}}
+      <div class="word-column">
+        <h4>{{g.label}}</h4>
+        <ol>
+          {{#each g.list as |w|}}
+          <li class="{{#unless w.known}}unknown{{/unless}}"><span>{{w.name}} <em>{{w.incantation}}</em></span><span class="rank-tag">{{w.rank}}</span></li>
+          {{/each}}
+        </ol>
+      </div>
+      {{/each}}
+    </div>
+    {{#unless p.canCompose}}<p class="hint warning">{{localize "EDGELINER.Words.NeedOneEach"}}</p>{{/unless}}
+  </section>
+  {{/if}}
+
+  {{! Saved builds }}
+  <section class="item-section">
+    <header class="item-header">
+      <h3>{{localize "EDGELINER.Caster.Saved.Title"}}</h3>
+      <span class="col narrow">CP</span><span class="col narrow">TN</span><span class="col narrow">{{localize "EDGELINER.Drain.Short"}}</span>
+      <span class="controls"></span>
+    </header>
+    <ol class="item-list">
+      {{#each p.builds as |b|}}
+      <li class="item-row {{#if b.broken}}broken{{/if}}" data-build-id="{{b.id}}">
+        <a class="item-name" data-action="castBuild" data-tooltip="{{localize 'EDGELINER.Caster.Cast'}}"><i class="fa-solid fa-wand-sparkles"></i> {{b.name}} <span class="hint">{{b.power}}</span></a>
+        <span class="col narrow">{{b.cp}}</span>
+        <span class="col narrow">{{b.tn}}</span>
+        <span class="col narrow">1–{{b.drain}}</span>
+        <span class="controls">
+          <a data-action="editBuild" data-tooltip="{{localize 'PENTRA.Edit'}}"><i class="fa-solid fa-pen"></i></a>
+          {{#if @root.editable}}<a data-action="deleteBuild"><i class="fa-solid fa-trash"></i></a>{{/if}}
+        </span>
+      </li>
+      {{else}}
+      <li class="hint empty">{{localize "EDGELINER.Caster.Saved.None"}}</li>
+      {{/each}}
+    </ol>
+  </section>
+  {{/if}}
+</section>
+{{/with}}

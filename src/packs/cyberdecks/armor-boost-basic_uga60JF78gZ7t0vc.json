@@ -1,0 +1,31 @@
+{
+  "_id": "uga60JF78gZ7t0vc",
+  "_key": "!items!uga60JF78gZ7t0vc",
+  "name": "Armor Boost, Basic",
+  "type": "pentra-edgeliner-foundry-vtt.deckmodule",
+  "img": "modules/pentra-edgeliner-foundry-vtt/assets/noun_cyberdeck_module_orange@512.webp",
+  "system": {
+    "description": "<p>A CyberDeck module. Only one module of each kind (basic or superior) can be installed in a deck at a time.</p>",
+    "cost": {
+      "die": 6,
+      "multiplier": 2
+    },
+    "legal": true,
+    "slot": "armor",
+    "value": 1,
+    "range": "close",
+    "installedIn": ""
+  },
+  "effects": [],
+  "folder": "ecGEQkenQ0X8J5F4",
+  "sort": 400000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14",
+    "systemId": "pentra-core-foundry-vtt",
+    "systemVersion": "0.5.1"
+  }
+}
