@@ -126,7 +126,7 @@ export class PowerCaster extends HandlebarsApplicationMixin(ApplicationV2) {
     const signed = n => (n >= 0 ? `+${n}` : `${n}`);
     ctx.preview = {
       ...preview,
-      roll: `d${preview.die}${signed(preview.bonus)} ${signed(preview.rank)}${preview.strain ? ` −${preview.strain}` : ""}`,
+      roll: `d${preview.die}${signed(preview.bonus)} ${signed(preview.skill)}${preview.strain ? ` −${preview.strain}` : ""}`,
       problem: preview.problem ? fmt(preview.problem, { name: actor.name, power: power.name }) : null,
       drainDieLabel: preview.drainDie ? `d${preview.drainDie}` : "0"
     };

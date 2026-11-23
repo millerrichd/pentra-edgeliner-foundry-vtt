@@ -2,7 +2,7 @@
  * Casting powers (pp. 11–12): build the power, roll Power + skill − implants against its target number through the
  * core check (so Edge, advantage and statuses all apply), then make the Drain Die usage check and post what it does.
  */
-import { PENTRA, Rolls } from "./core.js";
+import { PENTRA, Rolls, CoreRules } from "./core.js";
 import { MODULE, SYSTEM, EDGELINER } from "./config.js";
 import * as R from "./rules.js";
 
@@ -40,13 +40,15 @@ export function castPreview(actor, power, picks) {
   const rank = R.castingRank(power.skills, ranks);
   const strain = actor.system.strain?.used ?? 0;
   const { die, bonus } = actor.system.attributes.power;
-  const flat = bonus + rank - strain;
+  // A skill adds its full rank, as in every core check (core v0.7).
+  const skill = CoreRules.skillBonus(rank);
+  const flat = bonus + skill - strain;
   const tn = R.powerTN(cp);
   const effects = R.powerEffects(power, picks);
   const problem = R.castProblem(power, { category: actor.system.powerTradition, ranks, drainDie: actor.system.drainDie.value });
   const pab = bonus;
   return {
-    cp, tn, rank, strain, die, bonus, flat, effects, problem,
+    cp, tn, rank, skill, strain, die, bonus, flat, effects, problem,
     drainTop: R.drainTop(cp),
     drainDie: actor.system.drainDie.value,
     chance: Math.round(100 * R.successChance(die, flat, tn)),

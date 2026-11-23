@@ -32,7 +32,7 @@ export function countWounds({ base, increment, tn, total, heavy = false }) {
 /** +1 for every started 10 Construction Points (1–10: +1 … 41–50: +5). */
 export const cpSteps = cp => Math.max(1, Math.ceil((Number(cp) || 0) / 10));
 
-/** Target number to cast: 7, +1 per started 10 CP (1–10 → 8, 11–20 → 9 …). */
+/** Target number to cast (v0.5 table, p. 11): 9, +1 per started 10 CP (1–10 → 10, 11–20 → 11 … 41–50 → 14). */
 export const powerTN = cp => EDGELINER.powerBaseTN + cpSteps(cp);
 
 /** The Drain Die usage check fails on 1 to this (1–10 CP → 1–2, 11–20 → 1–3 …). */

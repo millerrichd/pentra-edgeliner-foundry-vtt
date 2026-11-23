@@ -140,7 +140,7 @@ export class CyberdeckModel extends EdgelinerItemBase {
     return {
       ...super.defineSchema(),
       size: str("normal", { blank: false, choices: Object.keys(PENTRA.sizes) }),
-      evasion: int(8),
+      evasion: int(10),
       armor: int(1, { min: 0 }),
       wounds: int(1, { min: 0 }),
       increment: str("odd", { blank: false, choices: Object.keys(PENTRA.increments) }),

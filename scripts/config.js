@@ -56,8 +56,8 @@ export const PSYCHIC_RATINGS = [[], ["A"], ["A"], ["A"], ["A", "B"], ["A", "B"],
 /** Totem power tiers, lowest first (p. 12). */
 export const TOTEM_TIERS = ["minor", "moderate", "significant", "grand"];
 
-/** The starting target number for powers; +1 for every started 10 Construction Points (p. 11). */
-EDGELINER.powerBaseTN = 7;
+/** The starting target number for powers (7, +2 in v0.5); +1 for every started 10 Construction Points (p. 11). */
+EDGELINER.powerBaseTN = 9;
 /** Resisting a power: a flat resistance check against 12 (p. 11). */
 EDGELINER.resistTN = 12;
 
@@ -114,15 +114,15 @@ EDGELINER.burstTable = [
 ];
 
 /**
- * Security systems by rank (v0.5, p. 10). `rank` is the attribute rank (0 = d12+0 … 4 = d4+8). `alert` is the
+ * Security systems by rank (v0.6, p. 10). `rank` is the attribute rank (0 = d12+0 … 4 = d4+8). `alert` is the
  * Alert Threshold: at it security gets its bonus, at double it the system shuts down.
  */
 EDGELINER.securityRanks = {
-  low: { rank: 0, skill: 1, alert: 11, evasion: 8, armor: 0, wounds: 1, increment: "odd" },
-  moderate: { rank: 1, skill: 1, alert: 9, evasion: 9, armor: 1, wounds: 1, increment: "even" },
-  high: { rank: 2, skill: 2, alert: 7, evasion: 10, armor: 2, wounds: 2, increment: "odd" },
-  superHigh: { rank: 3, skill: 2, alert: 5, evasion: 11, armor: 3, wounds: 2, increment: "even" },
-  blackSite: { rank: 4, skill: 3, alert: 3, evasion: 12, armor: 4, wounds: 2, increment: "every" }
+  low: { rank: 0, skill: 1, alert: 11, evasion: 9, armor: 0, wounds: 1, increment: "odd" },
+  moderate: { rank: 1, skill: 1, alert: 9, evasion: 10, armor: 1, wounds: 1, increment: "even" },
+  high: { rank: 2, skill: 2, alert: 7, evasion: 11, armor: 2, wounds: 2, increment: "odd" },
+  superHigh: { rank: 3, skill: 2, alert: 5, evasion: 12, armor: 3, wounds: 2, increment: "even" },
+  blackSite: { rank: 4, skill: 3, alert: 3, evasion: 13, armor: 4, wounds: 2, increment: "every" }
 };
 
 /** Long System Delves: what the round's d12 usage check finds (p. 9). A 12 is both an obstacle and a data cache. */

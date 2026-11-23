@@ -12,7 +12,7 @@
     },
     "legal": true,
     "size": "normal",
-    "evasion": 8,
+    "evasion": 10,
     "armor": 1,
     "wounds": 1,
     "increment": "odd",

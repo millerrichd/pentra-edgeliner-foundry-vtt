@@ -15,19 +15,19 @@ const pick = (power, labels) => {
 };
 
 test("target number and drain range follow the construction table", () => {
-  const rows = [[1, 8, 2], [10, 8, 2], [11, 9, 3], [20, 9, 3], [21, 10, 4], [31, 11, 5], [41, 12, 6], [50, 12, 6]];
+  const rows = [[1, 10, 2], [10, 10, 2], [11, 11, 3], [20, 11, 3], [21, 12, 4], [31, 13, 5], [41, 14, 6], [50, 14, 6]];
   for (const [cp, tn, drain] of rows) {
     assert.equal(R.powerTN(cp), tn, `TN for ${cp} CP`);
     assert.equal(R.drainTop(cp), drain, `drain for ${cp} CP`);
   }
 });
 
-test("the rulebook's Confusion example costs 13 CP: TN 9, drain 1–3", () => {
+test("the rulebook's Confusion example costs 13 CP: TN 11, drain 1–3", () => {
   const power = R.psychicPower("control", "confusion");
   const picks = pick(power, { targets: "1 Target", resist: "+1 Bonus", duration: "1 minute x PAB" });
   const cp = R.constructionPoints(power, picks);
   assert.equal(cp, 13);
-  assert.equal(R.powerTN(cp), 9);
+  assert.equal(R.powerTN(cp), 11);
   assert.equal(R.drainTop(cp), 3);
   const fx = R.powerEffects(power, picks);
   assert.equal(fx.targets, 1);
@@ -176,7 +176,9 @@ test("hacking tables", () => {
   assert.equal(R.alertState(6, 3), "shutdown");
   assert.ok(R.withinRange("veryClose", "close"));
   assert.ok(!R.withinRange("far", "close"));
-  assert.equal(EDGELINER.securityRanks.blackSite.evasion, 12);
+  assert.equal(EDGELINER.securityRanks.blackSite.evasion, 13);
+  // v0.6: Evasion raised to a "stressed" level.
+  assert.deepEqual(Object.values(EDGELINER.securityRanks).map(s => s.evasion), [9, 10, 11, 12, 13]);
   // v0.5: alert thresholds and armor by rank.
   assert.deepEqual(Object.values(EDGELINER.securityRanks).map(s => s.alert), [11, 9, 7, 5, 3]);
   assert.deepEqual(Object.values(EDGELINER.securityRanks).map(s => s.armor), [0, 1, 2, 3, 4]);
